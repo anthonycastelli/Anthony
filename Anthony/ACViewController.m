@@ -14,16 +14,36 @@
 
 @implementation ACViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	[self.scrollView setContentSize:CGSizeMake(320, 568)];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+}
+
+#pragma mark - Options
+
+- (IBAction)about:(id)sender {
+    
+}
+
+- (IBAction)timeline:(id)sender {
+    
+}
+
+- (IBAction)apps:(id)sender {
+    
+}
+
+- (IBAction)design:(id)sender {
+    
+}
+
+- (IBAction)wwdc:(id)sender {
+    
 }
 
 @end

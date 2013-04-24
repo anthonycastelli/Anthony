@@ -18,6 +18,9 @@
 		9282808B172860C7004AAA13 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282808A172860C7004AAA13 /* Default-568h@2x.png */; };
 		9282808E172860C7004AAA13 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9282808C172860C7004AAA13 /* MainStoryboard.storyboard */; };
 		92828091172860C7004AAA13 /* ACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92828090172860C7004AAA13 /* ACViewController.m */; };
+		928280A01728628B004AAA13 /* ACBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282809A1728628B004AAA13 /* ACBounceAnimation.m */; };
+		928280A11728628B004AAA13 /* ACPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282809D1728628B004AAA13 /* ACPopupBackgroundView.m */; };
+		928280A21728628B004AAA13 /* UIViewController+ACPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282809F1728628B004AAA13 /* UIViewController+ACPopupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,12 @@
 		9282808D172860C7004AAA13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9282808F172860C7004AAA13 /* ACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACViewController.h; sourceTree = "<group>"; };
 		92828090172860C7004AAA13 /* ACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACViewController.m; sourceTree = "<group>"; };
+		928280991728628B004AAA13 /* ACBounceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBounceAnimation.h; sourceTree = "<group>"; };
+		9282809A1728628B004AAA13 /* ACBounceAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBounceAnimation.m; sourceTree = "<group>"; };
+		9282809C1728628B004AAA13 /* ACPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPopupBackgroundView.h; sourceTree = "<group>"; };
+		9282809D1728628B004AAA13 /* ACPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACPopupBackgroundView.m; sourceTree = "<group>"; };
+		9282809E1728628B004AAA13 /* UIViewController+ACPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ACPopupViewController.h"; sourceTree = "<group>"; };
+		9282809F1728628B004AAA13 /* UIViewController+ACPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACPopupViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,7 @@
 				9282808C172860C7004AAA13 /* MainStoryboard.storyboard */,
 				9282808F172860C7004AAA13 /* ACViewController.h */,
 				92828090172860C7004AAA13 /* ACViewController.m */,
+				928280971728628B004AAA13 /* Internal Classes */,
 				9282807B172860C7004AAA13 /* Supporting Files */,
 			);
 			path = Anthony;
@@ -105,6 +115,35 @@
 				9282808A172860C7004AAA13 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		928280971728628B004AAA13 /* Internal Classes */ = {
+			isa = PBXGroup;
+			children = (
+				928280981728628B004AAA13 /* ACBounceAnimation */,
+				9282809B1728628B004AAA13 /* ACPopupViewController */,
+			);
+			path = "Internal Classes";
+			sourceTree = "<group>";
+		};
+		928280981728628B004AAA13 /* ACBounceAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				928280991728628B004AAA13 /* ACBounceAnimation.h */,
+				9282809A1728628B004AAA13 /* ACBounceAnimation.m */,
+			);
+			path = ACBounceAnimation;
+			sourceTree = "<group>";
+		};
+		9282809B1728628B004AAA13 /* ACPopupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9282809C1728628B004AAA13 /* ACPopupBackgroundView.h */,
+				9282809D1728628B004AAA13 /* ACPopupBackgroundView.m */,
+				9282809E1728628B004AAA13 /* UIViewController+ACPopupViewController.h */,
+				9282809F1728628B004AAA13 /* UIViewController+ACPopupViewController.m */,
+			);
+			path = ACPopupViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +216,9 @@
 				92828081172860C7004AAA13 /* main.m in Sources */,
 				92828085172860C7004AAA13 /* ACAppDelegate.m in Sources */,
 				92828091172860C7004AAA13 /* ACViewController.m in Sources */,
+				928280A01728628B004AAA13 /* ACBounceAnimation.m in Sources */,
+				928280A11728628B004AAA13 /* ACPopupBackgroundView.m in Sources */,
+				928280A21728628B004AAA13 /* UIViewController+ACPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
