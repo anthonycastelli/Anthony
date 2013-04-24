@@ -10,17 +10,6 @@
 
 @interface ACViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIButton *about;
-@property (weak, nonatomic) IBOutlet UIButton *timeline;
-@property (weak, nonatomic) IBOutlet UIButton *apps;
-@property (weak, nonatomic) IBOutlet UIButton *designs;
-@property (weak, nonatomic) IBOutlet UIButton *wwdc;
-
-- (IBAction)about:(id)sender;
-- (IBAction)timeline:(id)sender;
-- (IBAction)apps:(id)sender;
-- (IBAction)design:(id)sender;
-- (IBAction)wwdc:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

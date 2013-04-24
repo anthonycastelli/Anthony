@@ -7,6 +7,8 @@
 //
 
 #import "ACViewController.h"
+#import "ACTableViewCell.h"
+
 #define aboutTime 0.2
 #define timelineTime 0.25
 #define appsTime 0.3
@@ -14,82 +16,13 @@
 #define wwdcTime 0.4
 
 @interface ACViewController ()
-
+- (void)configureCell:(ACTableViewCell *)cell atIindexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation ACViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self.scrollView setContentSize:CGSizeMake(320, 568)];
-    
-    NSString *keyPath = @"position.x";
-    id toValue = [NSNumber numberWithFloat:160];
-    
-    // About Bounce
-    [self performBlock:^{
-        ACBounceAnimation *bounce = [ACBounceAnimation animationWithKeyPath:keyPath];
-        bounce.fromValue = [NSNumber numberWithFloat:self.about.center.x];
-        bounce.toValue = toValue;
-        bounce.duration = 0.6f;
-        bounce.numberOfBounces = 4;
-        bounce.shouldOvershoot = YES;
-        
-        [self.about.layer addAnimation:bounce forKey:@"bounce"];
-        [self.about.layer setValue:toValue forKeyPath:keyPath];
-    } afterDelay:aboutTime];
-    
-    // Timeline Bounce
-    [self performBlock:^{
-        ACBounceAnimation *bounce = [ACBounceAnimation animationWithKeyPath:keyPath];
-        bounce.fromValue = [NSNumber numberWithFloat:self.timeline.center.x];
-        bounce.toValue = toValue;
-        bounce.duration = 0.6f;
-        bounce.numberOfBounces = 4;
-        bounce.shouldOvershoot = YES;
-        
-        [self.timeline.layer addAnimation:bounce forKey:@"bounce"];
-        [self.timeline.layer setValue:toValue forKeyPath:keyPath];
-    } afterDelay:timelineTime];
-    
-    // Apps Bounce
-    [self performBlock:^{
-        ACBounceAnimation *bounce = [ACBounceAnimation animationWithKeyPath:keyPath];
-        bounce.fromValue = [NSNumber numberWithFloat:self.apps.center.x];
-        bounce.toValue = toValue;
-        bounce.duration = 0.6f;
-        bounce.numberOfBounces = 4;
-        bounce.shouldOvershoot = YES;
-        
-        [self.apps.layer addAnimation:bounce forKey:@"bounce"];
-        [self.apps.layer setValue:toValue forKeyPath:keyPath];
-    } afterDelay:appsTime];
-    
-    // Designs Bounce
-    [self performBlock:^{
-        ACBounceAnimation *bounce = [ACBounceAnimation animationWithKeyPath:keyPath];
-        bounce.fromValue = [NSNumber numberWithFloat:self.designs.center.x];
-        bounce.toValue = toValue;
-        bounce.duration = 0.6f;
-        bounce.numberOfBounces = 4;
-        bounce.shouldOvershoot = YES;
-        
-        [self.designs.layer addAnimation:bounce forKey:@"bounce"];
-        [self.designs.layer setValue:toValue forKeyPath:keyPath];
-    } afterDelay:designTime];
-    
-    // WWDC Bounce
-    [self performBlock:^{
-        ACBounceAnimation *bounce = [ACBounceAnimation animationWithKeyPath:keyPath];
-        bounce.fromValue = [NSNumber numberWithFloat:self.wwdc.center.x];
-        bounce.toValue = toValue;
-        bounce.duration = 0.6f;
-        bounce.numberOfBounces = 4;
-        bounce.shouldOvershoot = YES;
-        
-        [self.wwdc.layer addAnimation:bounce forKey:@"bounce"];
-        [self.wwdc.layer setValue:toValue forKeyPath:keyPath];
-    } afterDelay:wwdcTime];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,24 +32,56 @@
 
 #pragma mark - Options
 
-- (IBAction)about:(id)sender {
-    
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
-- (IBAction)timeline:(id)sender {
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
 }
 
-- (IBAction)apps:(id)sender {
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 109.0f;
 }
 
-- (IBAction)design:(id)sender {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ACTableViewCell *cell = (ACTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    [cell prepareForBounce];
+    [self configureCell:cell atIindexPath:indexPath];
+    return cell;
 }
 
-- (IBAction)wwdc:(id)sender {
-    
+- (void)configureCell:(ACTableViewCell *)cell atIindexPath:(NSIndexPath *)indexPath {
+    [self.tableView beginUpdates];
+    switch (indexPath.row) {
+        case 0:
+            [cell.imageView setImage:[UIImage imageNamed:@"about_button"]];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:aboutTime];
+            break;
+        case 1:
+            [cell.imageView setImage:[UIImage imageNamed:@"timeline_button"]];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:timelineTime];
+            break;
+        case 2:
+            [cell.imageView setImage:[UIImage imageNamed:@"apps_button"]];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:appsTime];
+            break;
+        case 3:
+            [cell.imageView setImage:[UIImage imageNamed:@"designs_button"]];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:designTime];
+            break;
+        case 4:
+            [cell.imageView setImage:[UIImage imageNamed:@"wwdc_button"]];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:wwdcTime];
+            break;
+        default:
+            break;
+    }
+    [self.tableView endUpdates];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Sell");
 }
 
 @end

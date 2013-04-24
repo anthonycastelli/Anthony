@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-- (void)bounceImageInToPoint:(CGPoint)point;
+- (void)prepareForBounce;
+- (void)bounceImageInToPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 
 @end

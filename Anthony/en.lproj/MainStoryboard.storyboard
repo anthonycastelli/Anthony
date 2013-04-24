@@ -13,27 +13,37 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="t6i-em-Wyy">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.29411764709999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="105" id="Gzl-HN-vxm">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="105" id="Gzl-HN-vxm" customClass="ACTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="about_button@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="SHB-wi-ecA"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHB-wi-ecA">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="320" id="lNs-Lb-fHZ"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="leading" secondItem="Gzl-HN-vxm" secondAttribute="leading" type="default" id="6qL-fF-HP6"/>
-                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="trailing" secondItem="Gzl-HN-vxm" secondAttribute="trailing" type="default" id="CMa-1A-J0N"/>
                                             <constraint firstItem="SHB-wi-ecA" firstAttribute="top" secondItem="Gzl-HN-vxm" secondAttribute="top" type="default" id="UFh-hl-PYs"/>
                                             <constraint firstItem="SHB-wi-ecA" firstAttribute="bottom" secondItem="Gzl-HN-vxm" secondAttribute="bottom" type="default" id="XfB-1a-hU2"/>
+                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="leading" secondItem="Gzl-HN-vxm" secondAttribute="leading" constant="-320" id="mbY-6i-8rL"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="SHB-wi-ecA" id="qB5-sQ-J77"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="pY7-qn-vKS"/>
+                                    <outlet property="delegate" destination="2" id="ZW0-cT-fpC"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -45,6 +55,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="t6i-em-Wyy" id="puo-73-wbj"/>
                         <outlet property="view" destination="3" id="tmD-gM-FR9"/>
                     </connections>
                 </viewController>
@@ -52,24 +63,17 @@
             </objects>
         </scene>
     </scenes>
-    <resources>
-        <image name="about_button@2x.png" width="640" height="210"/>
-    </resources>
     <classes>
+        <class className="ACTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ACTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
         <class className="ACViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ACViewController.h"/>
             <relationships>
-                <relationship kind="action" name="about:"/>
-                <relationship kind="action" name="apps:"/>
-                <relationship kind="action" name="design:"/>
-                <relationship kind="action" name="timeline:"/>
-                <relationship kind="action" name="wwdc:"/>
-                <relationship kind="outlet" name="about" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="apps" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="designs" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="timeline" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wwdc" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
