@@ -29,26 +29,26 @@
 
 static void * const keypath = (void*)&keypath;
 
-- (UIViewController *)AC_popupViewController {
+- (UIViewController *)ac_popupViewController {
     return objc_getAssociatedObject(self, kACPopupViewController);
 }
 
-- (void)setAC_popupViewController:(UIViewController *)AC_popupViewController {
-    objc_setAssociatedObject(self, kACPopupViewController, AC_popupViewController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setAc_popupViewController:(UIViewController *)ac_popupViewController {
+    objc_setAssociatedObject(self, kACPopupViewController, ac_popupViewController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
 }
 
-- (ACPopupBackgroundView *)AC_popupBackgroundView {
+- (ACPopupBackgroundView *)ac_popupBackgroundView {
     return objc_getAssociatedObject(self, kACPopupBackgroundView);
 }
 
-- (void)setAC_popupBackgroundView:(ACPopupBackgroundView *)AC_popupBackgroundView {
-    objc_setAssociatedObject(self, kACPopupBackgroundView, AC_popupBackgroundView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setAc_popupBackgroundView:(ACPopupBackgroundView *)ac_popupBackgroundView {
+    objc_setAssociatedObject(self, kACPopupBackgroundView, ac_popupBackgroundView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
 }
 
 - (void)presentPopupViewController:(UIViewController *)popupViewController animationType:(ACPopupViewAnimation)animationType {
-    self.AC_popupViewController = popupViewController;
+    self.ac_popupViewController = popupViewController;
     [self presentPopupView:popupViewController.view animationType:animationType];
 }
 
@@ -73,7 +73,7 @@ static void * const keypath = (void*)&keypath;
             [self fadeViewOut:popupView sourceView:sourceView overlayView:overlayView];
             break;
     }
-    self.AC_popupViewController = nil;
+    self.ac_popupViewController = nil;
 }
 
 #pragma mark - View Handling
@@ -103,11 +103,11 @@ static void * const keypath = (void*)&keypath;
     overlayView.backgroundColor = [UIColor clearColor];
     
     // BackgroundView
-    self.AC_popupBackgroundView = [[ACPopupBackgroundView alloc] initWithFrame:sourceView.bounds];
-    self.AC_popupBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.AC_popupBackgroundView.backgroundColor = [UIColor clearColor];
-    self.AC_popupBackgroundView.alpha = 0.0f;
-    [overlayView addSubview:self.AC_popupBackgroundView];
+    self.ac_popupBackgroundView = [[ACPopupBackgroundView alloc] initWithFrame:sourceView.bounds];
+    self.ac_popupBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.ac_popupBackgroundView.backgroundColor = [UIColor clearColor];
+    self.ac_popupBackgroundView.alpha = 0.0f;
+    [overlayView addSubview:self.ac_popupBackgroundView];
     
     // Make the Background Clickable
     UIButton *dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -222,11 +222,11 @@ static void * const keypath = (void*)&keypath;
     popupView.frame = popupStartRect;
     popupView.alpha = 1.0f;
     [UIView animateWithDuration:kPopupModalAnimationDuration delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
-        [self.AC_popupViewController viewWillAppear:NO];
-        self.AC_popupBackgroundView.alpha = 1.0f;
+        [self.ac_popupViewController viewWillAppear:NO];
+        self.ac_popupBackgroundView.alpha = 1.0f;
         popupView.frame = popupEndRect;
     } completion:^(BOOL finished) {
-        [self.AC_popupViewController viewDidAppear:NO];
+        [self.ac_popupViewController viewDidAppear:NO];
     }];
 }
 
@@ -267,14 +267,14 @@ static void * const keypath = (void*)&keypath;
     }
     
     [UIView animateWithDuration:kPopupModalAnimationDuration delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        [self.AC_popupViewController viewWillDisappear:NO];
+        [self.ac_popupViewController viewWillDisappear:NO];
         popupView.frame = popupEndRect;
-        self.AC_popupBackgroundView.alpha = 0.0f;
+        self.ac_popupBackgroundView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [popupView removeFromSuperview];
         [overlayView removeFromSuperview];
-        [self.AC_popupViewController viewDidDisappear:NO];
-        self.AC_popupViewController = nil;
+        [self.ac_popupViewController viewDidDisappear:NO];
+        self.ac_popupViewController = nil;
     }];
 }
 
@@ -294,24 +294,24 @@ static void * const keypath = (void*)&keypath;
     popupView.alpha = 0.0f;
     
     [UIView animateWithDuration:kPopupModalAnimationDuration animations:^{
-        [self.AC_popupViewController viewWillAppear:NO];
-        self.AC_popupBackgroundView.alpha = 0.5f;
+        [self.ac_popupViewController viewWillAppear:NO];
+        self.ac_popupBackgroundView.alpha = 0.5f;
         popupView.alpha = 1.0f;
     } completion:^(BOOL finished) {
-        [self.AC_popupViewController viewDidAppear:NO];
+        [self.ac_popupViewController viewDidAppear:NO];
     }];
 }
 
 - (void)fadeViewOut:(UIView *)popupView sourceView:(UIView *)sourceView overlayView:(UIView *)overlayView {
     [UIView animateWithDuration:kPopupModalAnimationDuration animations:^{
-        [self.AC_popupViewController viewWillDisappear:NO];
-        self.AC_popupBackgroundView.alpha = 0.0f;
+        [self.ac_popupViewController viewWillDisappear:NO];
+        self.ac_popupBackgroundView.alpha = 0.0f;
         popupView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [popupView removeFromSuperview];
         [overlayView removeFromSuperview];
-        [self.AC_popupViewController viewDidDisappear:NO];
-        self.AC_popupViewController = nil;
+        [self.ac_popupViewController viewDidDisappear:NO];
+        self.ac_popupViewController = nil;
     }];
 }
 

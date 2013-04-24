@@ -22,10 +22,10 @@ typedef enum {
     ACPopupViewAnimationSlideRightRight,
 } ACPopupViewAnimation;
 
-@interface UIViewController (MJPopupViewController)
+@interface UIViewController (ACPopupViewController)
 
-@property (nonatomic, retain) UIViewController *mj_popupViewController;
-@property (nonatomic, retain) ACPopupBackgroundView *mj_popupBackgroundView;
+@property (nonatomic, retain) UIViewController *ac_popupViewController;
+@property (nonatomic, retain) ACPopupBackgroundView *ac_popupBackgroundView;
 
 - (void)presentPopupViewController:(UIViewController *)popupViewController animationType:(ACPopupViewAnimation)animationType;
 - (void)dismissPopupViewControllerWithanimationType:(ACPopupViewAnimation)animationType;
