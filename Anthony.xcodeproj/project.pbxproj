@@ -21,6 +21,11 @@
 		928280A01728628B004AAA13 /* ACBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282809A1728628B004AAA13 /* ACBounceAnimation.m */; };
 		928280A11728628B004AAA13 /* ACPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282809D1728628B004AAA13 /* ACPopupBackgroundView.m */; };
 		928280A21728628B004AAA13 /* UIViewController+ACPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9282809F1728628B004AAA13 /* UIViewController+ACPopupViewController.m */; };
+		928280AA17286498004AAA13 /* about_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280A517286498004AAA13 /* about_button@2x.png */; };
+		928280AB17286498004AAA13 /* apps_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280A617286498004AAA13 /* apps_button@2x.png */; };
+		928280AC17286498004AAA13 /* designs_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280A717286498004AAA13 /* designs_button@2x.png */; };
+		928280AD17286498004AAA13 /* timeline_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280A817286498004AAA13 /* timeline_button@2x.png */; };
+		928280AE17286498004AAA13 /* wwdc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280A917286498004AAA13 /* wwdc_button@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		9282809D1728628B004AAA13 /* ACPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACPopupBackgroundView.m; sourceTree = "<group>"; };
 		9282809E1728628B004AAA13 /* UIViewController+ACPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ACPopupViewController.h"; sourceTree = "<group>"; };
 		9282809F1728628B004AAA13 /* UIViewController+ACPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACPopupViewController.m"; sourceTree = "<group>"; };
+		928280A517286498004AAA13 /* about_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_button@2x.png"; sourceTree = "<group>"; };
+		928280A617286498004AAA13 /* apps_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apps_button@2x.png"; sourceTree = "<group>"; };
+		928280A717286498004AAA13 /* designs_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "designs_button@2x.png"; sourceTree = "<group>"; };
+		928280A817286498004AAA13 /* timeline_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_button@2x.png"; sourceTree = "<group>"; };
+		928280A917286498004AAA13 /* wwdc_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wwdc_button@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 		9282807B172860C7004AAA13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				928280A317286498004AAA13 /* Resources */,
 				9282807C172860C7004AAA13 /* Anthony-Info.plist */,
 				9282807D172860C7004AAA13 /* InfoPlist.strings */,
 				92828080172860C7004AAA13 /* main.m */,
@@ -144,6 +155,26 @@
 				9282809F1728628B004AAA13 /* UIViewController+ACPopupViewController.m */,
 			);
 			path = ACPopupViewController;
+			sourceTree = "<group>";
+		};
+		928280A317286498004AAA13 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				928280A417286498004AAA13 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		928280A417286498004AAA13 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				928280A517286498004AAA13 /* about_button@2x.png */,
+				928280A617286498004AAA13 /* apps_button@2x.png */,
+				928280A717286498004AAA13 /* designs_button@2x.png */,
+				928280A817286498004AAA13 /* timeline_button@2x.png */,
+				928280A917286498004AAA13 /* wwdc_button@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +234,11 @@
 				92828089172860C7004AAA13 /* Default@2x.png in Resources */,
 				9282808B172860C7004AAA13 /* Default-568h@2x.png in Resources */,
 				9282808E172860C7004AAA13 /* MainStoryboard.storyboard in Resources */,
+				928280AA17286498004AAA13 /* about_button@2x.png in Resources */,
+				928280AB17286498004AAA13 /* apps_button@2x.png in Resources */,
+				928280AC17286498004AAA13 /* designs_button@2x.png in Resources */,
+				928280AD17286498004AAA13 /* timeline_button@2x.png in Resources */,
+				928280AE17286498004AAA13 /* wwdc_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
