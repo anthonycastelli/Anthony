@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACViewController : UIViewController
+@interface ACViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *about;

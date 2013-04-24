@@ -28,6 +28,7 @@
 		928280AE17286498004AAA13 /* wwdc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280A917286498004AAA13 /* wwdc_button@2x.png */; };
 		928280B2172869E7004AAA13 /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 928280B1172869E7004AAA13 /* NSObject+PerformBlock.m */; };
 		928280B417286A9D004AAA13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928280B317286A9D004AAA13 /* QuartzCore.framework */; };
+		928280B7172875D9004AAA13 /* ACTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928280B6172875D9004AAA13 /* ACTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		928280B0172869E7004AAA13 /* NSObject+PerformBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PerformBlock.h"; sourceTree = "<group>"; };
 		928280B1172869E7004AAA13 /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		928280B317286A9D004AAA13 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		928280B5172875D9004AAA13 /* ACTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTableViewCell.h; sourceTree = "<group>"; };
+		928280B6172875D9004AAA13 /* ACTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				9282808C172860C7004AAA13 /* MainStoryboard.storyboard */,
 				9282808F172860C7004AAA13 /* ACViewController.h */,
 				92828090172860C7004AAA13 /* ACViewController.m */,
+				928280B5172875D9004AAA13 /* ACTableViewCell.h */,
+				928280B6172875D9004AAA13 /* ACTableViewCell.m */,
 				928280971728628B004AAA13 /* Internal Classes */,
 				9282807B172860C7004AAA13 /* Supporting Files */,
 			);
@@ -273,6 +278,7 @@
 				928280A11728628B004AAA13 /* ACPopupBackgroundView.m in Sources */,
 				928280A21728628B004AAA13 /* UIViewController+ACPopupViewController.m in Sources */,
 				928280B2172869E7004AAA13 /* NSObject+PerformBlock.m in Sources */,
+				928280B7172875D9004AAA13 /* ACTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
