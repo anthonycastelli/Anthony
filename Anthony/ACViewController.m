@@ -46,42 +46,39 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ACTableViewCell *cell = (ACTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [cell prepareForBounce];
     [self configureCell:cell atIindexPath:indexPath];
     return cell;
 }
 
 - (void)configureCell:(ACTableViewCell *)cell atIindexPath:(NSIndexPath *)indexPath {
-    [self.tableView beginUpdates];
     switch (indexPath.row) {
         case 0:
-            [cell.imageView setImage:[UIImage imageNamed:@"about_button"]];
+            [cell.imageLabel setImage:[UIImage imageNamed:@"about_button"]];
             [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:aboutTime];
             break;
         case 1:
-            [cell.imageView setImage:[UIImage imageNamed:@"timeline_button"]];
+            [cell.imageLabel setImage:[UIImage imageNamed:@"timeline_button"]];
             [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:timelineTime];
             break;
         case 2:
-            [cell.imageView setImage:[UIImage imageNamed:@"apps_button"]];
+            [cell.imageLabel setImage:[UIImage imageNamed:@"apps_button"]];
             [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:appsTime];
             break;
         case 3:
-            [cell.imageView setImage:[UIImage imageNamed:@"designs_button"]];
+            [cell.imageLabel setImage:[UIImage imageNamed:@"designs_button"]];
             [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:designTime];
             break;
         case 4:
-            [cell.imageView setImage:[UIImage imageNamed:@"wwdc_button"]];
+            [cell.imageLabel setImage:[UIImage imageNamed:@"wwdc_button"]];
             [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:wwdcTime];
             break;
         default:
             break;
     }
-    [self.tableView endUpdates];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Sell");
+    
 }
 
 @end

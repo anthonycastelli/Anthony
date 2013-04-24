@@ -10,9 +10,8 @@
 
 @interface ACTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageLabel;
 
-- (void)prepareForBounce;
 - (void)bounceImageInToPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 
 @end

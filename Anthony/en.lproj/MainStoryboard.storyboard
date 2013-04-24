@@ -24,19 +24,19 @@
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHB-wi-ecA">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="320" id="lNs-Lb-fHZ"/>
+                                                        <constraint firstAttribute="width" constant="320" id="xAJ-S8-TVO"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="top" secondItem="Gzl-HN-vxm" secondAttribute="top" type="default" id="UFh-hl-PYs"/>
-                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="bottom" secondItem="Gzl-HN-vxm" secondAttribute="bottom" type="default" id="XfB-1a-hU2"/>
-                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="leading" secondItem="Gzl-HN-vxm" secondAttribute="leading" constant="-320" id="mbY-6i-8rL"/>
+                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="leading" secondItem="Gzl-HN-vxm" secondAttribute="leading" constant="-320" id="2f1-Gy-8X2"/>
+                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="top" secondItem="Gzl-HN-vxm" secondAttribute="top" type="default" id="2it-k7-98d"/>
+                                            <constraint firstItem="SHB-wi-ecA" firstAttribute="bottom" secondItem="Gzl-HN-vxm" secondAttribute="bottom" type="default" id="Zub-Pe-0vI"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="SHB-wi-ecA" id="qB5-sQ-J77"/>
+                                            <outlet property="imageLabel" destination="SHB-wi-ecA" id="q4R-Vl-9CC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -48,10 +48,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t6i-em-Wyy" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="K3z-uC-0CH"/>
-                            <constraint firstItem="t6i-em-Wyy" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="S8b-Hd-VmX"/>
-                            <constraint firstItem="t6i-em-Wyy" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="dyx-Q1-zmm"/>
-                            <constraint firstItem="t6i-em-Wyy" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="w0K-cp-WD4"/>
+                            <constraint firstItem="t6i-em-Wyy" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="8xO-AO-d2M"/>
+                            <constraint firstItem="t6i-em-Wyy" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="crw-Oz-d8G"/>
+                            <constraint firstItem="t6i-em-Wyy" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="hon-b6-aCk"/>
+                            <constraint firstItem="t6i-em-Wyy" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="qLL-sT-MxE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -67,7 +67,7 @@
         <class className="ACTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ACTableViewCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageLabel" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ACViewController" superclassName="UIViewController">
