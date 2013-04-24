@@ -29,6 +29,7 @@
 		928280B2172869E7004AAA13 /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 928280B1172869E7004AAA13 /* NSObject+PerformBlock.m */; };
 		928280B417286A9D004AAA13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928280B317286A9D004AAA13 /* QuartzCore.framework */; };
 		928280B7172875D9004AAA13 /* ACTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928280B6172875D9004AAA13 /* ACTableViewCell.m */; };
+		928280BB17289268004AAA13 /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928280BA17289268004AAA13 /* ACAboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		928280B317286A9D004AAA13 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		928280B5172875D9004AAA13 /* ACTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTableViewCell.h; sourceTree = "<group>"; };
 		928280B6172875D9004AAA13 /* ACTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTableViewCell.m; sourceTree = "<group>"; };
+		928280B917289268004AAA13 /* ACAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACAboutViewController.h; path = "View Controllers/ACAboutViewController.h"; sourceTree = "<group>"; };
+		928280BA17289268004AAA13 /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACAboutViewController.m; path = "View Controllers/ACAboutViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 				92828084172860C7004AAA13 /* ACAppDelegate.m */,
 				9282808C172860C7004AAA13 /* MainStoryboard.storyboard */,
 				928280B817289110004AAA13 /* Main View Controller */,
+				928280BC1728926A004AAA13 /* About */,
 				928280971728628B004AAA13 /* Internal Classes */,
 				9282807B172860C7004AAA13 /* Supporting Files */,
 			);
@@ -207,6 +211,15 @@
 			name = "Main View Controller";
 			sourceTree = "<group>";
 		};
+		928280BC1728926A004AAA13 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				928280B917289268004AAA13 /* ACAboutViewController.h */,
+				928280BA17289268004AAA13 /* ACAboutViewController.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,6 +300,7 @@
 				928280A21728628B004AAA13 /* UIViewController+ACPopupViewController.m in Sources */,
 				928280B2172869E7004AAA13 /* NSObject+PerformBlock.m in Sources */,
 				928280B7172875D9004AAA13 /* ACTableViewCell.m in Sources */,
+				928280BB17289268004AAA13 /* ACAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

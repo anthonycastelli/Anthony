@@ -1,5 +1,5 @@
 //
-//  ACViewController.h
+//  ACAboutViewController.h
 //  Anthony
 //
 //  Created by Anthony Castelli on 4/24/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACViewController : UITableViewController
+@interface ACAboutViewController : UIViewController
 
 @end

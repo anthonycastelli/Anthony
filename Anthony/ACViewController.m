@@ -8,6 +8,7 @@
 
 #import "ACViewController.h"
 #import "ACTableViewCell.h"
+#import "ACAboutViewController.h"
 
 #define aboutTime 0.2
 #define timelineTime 0.25
@@ -78,7 +79,27 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    UIViewController *controller = nil;
+    switch (indexPath.row) {
+        case 0:
+            controller = [self.storyboard instantiateViewControllerWithIdentifier:@"About"];
+            break;
+        case 1:
+            controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Timeline"];
+            break;
+        case 2:
+            controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Apps"];
+            break;
+        case 3:
+            controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Designs"];
+            break;
+        case 4:
+            controller = [self.storyboard instantiateViewControllerWithIdentifier:@"WWDC"];
+            break;
+        default:
+            break;
+    }
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
