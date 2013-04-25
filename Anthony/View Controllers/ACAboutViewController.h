@@ -19,6 +19,7 @@ typedef enum {
 @interface ACAboutViewController : UIViewController <ACAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *navigationbar;
+@property (weak, nonatomic) IBOutlet UIImageView *anthony;
 @property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;

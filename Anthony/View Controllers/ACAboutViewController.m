@@ -29,6 +29,7 @@
     [self.background setContentMode:UIViewContentModeScaleToFill];
     
     // Animate the objects into place
+    [self animateView:self.anthony toPoint:CGPointMake(160, 30) withDelay:0.3];
     [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.35];
     [self animateView:self.textView toPoint:CGPointMake(160, 274) withDelay:0.4];
     [self animateView:self.emerys toPoint:CGPointMake(32, 516) withDelay:0.5];
@@ -63,7 +64,8 @@
 #pragma mark - Options
 
 - (IBAction)back:(id)sender {
-    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.3];
+    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.35];
+    [self animateView:self.anthony toPoint:CGPointMake(480, 30) withDelay:0.3];
     [self animateView:self.textView toPoint:CGPointMake(460, 274) withDelay:0.25];
     [self animateView:self.emerys toPoint:CGPointMake(352, 516) withDelay:0.20];
     [self animateView:self.twitter toPoint:CGPointMake(416, 516) withDelay:0.15];
@@ -154,20 +156,26 @@
 - (void)alertView:(ACAlertView *)alertView tappedButtonAtIndex:(NSInteger)index {
     [ACAlertView setGlobalAcceptButtonDismissalAnimationStyle:ACAlertViewDismissalStyleFall];
     [ACAlertView setGlobalCancelButtonDismissalAnimationStyle:ACAlertViewDismissalStyleFall];
-    if (alertView == self.emerysAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://emerys.co/"]];
-    if (alertView == self.twitterAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/neueanthony"]];
-    if (alertView == self.appnetAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://alpha.app.net/amc"]];
-    if (alertView == self.dribbbleAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://dribbble.com/amc"]];
+    
+    if (alertView == self.emerysAlert) if (index == 1) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://emerys.co/"]];
+    
+    if (alertView == self.twitterAlert) if (index == 1) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/neueanthony"]];
+    
+    if (alertView == self.appnetAlert) if (index == 1) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://alpha.app.net/amc"]];
+    
+    if (alertView == self.dribbbleAlert) if (index == 1) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://dribbble.com/amc"]];
     
     if (alertView == self.emailAlert) {
-        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
-        [mail setMailComposeDelegate:self];
-        
-        [mail setSubject:@""];
-        [mail setMessageBody:@"" isHTML:NO];
-        [mail setToRecipients:@[@"anthony@emerys.co"]];
-        
-        [self presentViewController:mail animated:YES completion:nil];
+        if (index == 1) {
+            MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+            [mail setMailComposeDelegate:self];
+            
+            [mail setSubject:@""];
+            [mail setMessageBody:@"" isHTML:NO];
+            [mail setToRecipients:@[@"anthony@emerys.co"]];
+            
+            [self presentViewController:mail animated:YES completion:nil];
+        }
     }
 }
 
