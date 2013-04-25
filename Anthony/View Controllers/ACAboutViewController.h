@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    ACAboutActionEmerys = 0,
-    ACAboutActionTwitter = 1,
+    ACAboutActionEmerys,
+    ACAboutActionTwitter,
     ACAboutActionAppDotNet,
     ACAboutActionDribbble,
     ACAboutActionGitHub
@@ -18,6 +18,7 @@ typedef enum {
 
 @interface ACAboutViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *navigationbar;
 @property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
