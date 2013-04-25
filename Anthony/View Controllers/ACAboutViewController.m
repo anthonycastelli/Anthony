@@ -13,7 +13,7 @@
 @property (nonatomic, retain) ACAlertView *twitterAlert;
 @property (nonatomic, retain) ACAlertView *appnetAlert;
 @property (nonatomic, retain) ACAlertView *dribbbleAlert;
-@property (nonatomic, retain) ACAlertView *githubAlert;
+@property (nonatomic, retain) ACAlertView *emailAlert;
 
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 - (void)shakeView:(UIView *)view withDistance:(float)distance;
@@ -35,7 +35,7 @@
     [self animateView:self.twitter toPoint:CGPointMake(96, 516) withDelay:0.55];
     [self animateView:self.adn toPoint:CGPointMake(160, 516) withDelay:0.6];
     [self animateView:self.dribbble toPoint:CGPointMake(224, 516) withDelay:0.65];
-    [self animateView:self.github toPoint:CGPointMake(288, 516) withDelay:0.7];
+    [self animateView:self.email toPoint:CGPointMake(288, 516) withDelay:0.7];
     
     // Setup the swipe gesture
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(back:)];
@@ -69,7 +69,7 @@
     [self animateView:self.twitter toPoint:CGPointMake(416, 516) withDelay:0.15];
     [self animateView:self.adn toPoint:CGPointMake(480, 516) withDelay:0.10];
     [self animateView:self.dribbble toPoint:CGPointMake(544, 516) withDelay:0.05];
-    [self animateView:self.github toPoint:CGPointMake(608, 516) withDelay:0.0];
+    [self animateView:self.email toPoint:CGPointMake(608, 516) withDelay:0.0];
     
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
@@ -96,9 +96,9 @@
     [self openAction:ACAboutActionDribbble];
 }
 
-- (IBAction)github:(id)sender {
-    [self shakeView:self.github withDistance:6.0f];
-    [self openAction:ACAboutActionGitHub];
+- (IBAction)email:(id)sender {
+    [self shakeView:self.email withDistance:6.0f];
+    [self openAction:ACAboutActionEmail];
 }
 
 - (void)openAction:(ACAboutAction)action {
@@ -136,13 +136,13 @@
                                                   otherButtonTitles:@"Okay", nil];
             [self.dribbbleAlert show];
             break;
-        case ACAboutActionGitHub:
-            self.githubAlert = [[ACAlertView alloc] initWithTitle:@"GitHub"
-                                                          message:@"Clicking okay will take you to GitHub.com/anthonycastelli where you can see what projects I have contributed to or what I have open sourced. Would you like to continue?"
+        case ACAboutActionEmail:
+            self.emailAlert = [[ACAlertView alloc] initWithTitle:@"Email"
+                                                          message:@"Want to get in touch with me? Click okay and you can begin typing your message."
                                                          delegate:self
                                                 cancelButtonTitle:@"Cancel"
                                                 otherButtonTitles:@"Okay", nil];
-            [self.githubAlert show];
+            [self.emailAlert show];
             break;
         default:
             break;
@@ -158,7 +158,39 @@
     if (alertView == self.twitterAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/neueanthony"]];
     if (alertView == self.appnetAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://alpha.app.net/amc"]];
     if (alertView == self.dribbbleAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://dribbble.com/amc"]];
-    if (alertView == self.githubAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://github.com/anthonycastelli"]];
+    
+    if (alertView == self.emailAlert) {
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        [mail setMailComposeDelegate:self];
+        
+        [mail setSubject:@""];
+        [mail setMessageBody:@"" isHTML:NO];
+        [mail setToRecipients:@[@"anthony@emerys.co"]];
+        
+        [self presentViewController:mail animated:YES completion:nil];
+    }
+}
+
+#pragma mark - Mail Delegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Animations

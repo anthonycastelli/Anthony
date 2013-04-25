@@ -13,10 +13,10 @@ typedef enum {
     ACAboutActionTwitter,
     ACAboutActionAppDotNet,
     ACAboutActionDribbble,
-    ACAboutActionGitHub
+    ACAboutActionEmail
 } ACAboutAction;
 
-@interface ACAboutViewController : UIViewController <ACAlertViewDelegate>
+@interface ACAboutViewController : UIViewController <ACAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *navigationbar;
 @property (weak, nonatomic) IBOutlet UIImageView *background;
@@ -26,14 +26,14 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIButton *twitter;
 @property (weak, nonatomic) IBOutlet UIButton *adn;
 @property (weak, nonatomic) IBOutlet UIButton *dribbble;
-@property (weak, nonatomic) IBOutlet UIButton *github;
+@property (weak, nonatomic) IBOutlet UIButton *email;
 
 - (IBAction)back:(id)sender;
 - (IBAction)emerys:(id)sender;
 - (IBAction)twitter:(id)sender;
 - (IBAction)adn:(id)sender;
 - (IBAction)dribbble:(id)sender;
-- (IBAction)github:(id)sender;
+- (IBAction)email:(id)sender;
 
 - (void)openAction:(ACAboutAction)action;
 

@@ -37,7 +37,6 @@
 		928280E71728B98D004AAA13 /* appdotnet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280DE1728B98D004AAA13 /* appdotnet@2x.png */; };
 		928280E81728B98D004AAA13 /* dribbble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280DF1728B98D004AAA13 /* dribbble@2x.png */; };
 		928280E91728B98D004AAA13 /* emerys@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280E01728B98D004AAA13 /* emerys@2x.png */; };
-		928280EA1728B98D004AAA13 /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280E11728B98D004AAA13 /* github@2x.png */; };
 		928280EB1728B98D004AAA13 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280E21728B98D004AAA13 /* twitter@2x.png */; };
 		928280FB1728D53C004AAA13 /* ACAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928280EE1728D53C004AAA13 /* ACAlertView.m */; };
 		928280FC1728D53C004AAA13 /* acAlertView_defaultBackground_alphaOnly.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280F01728D53C004AAA13 /* acAlertView_defaultBackground_alphaOnly.png */; };
@@ -52,6 +51,8 @@
 		928281051728D53C004AAA13 /* acAlertView_iOS_okayCancelButton_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280F91728D53C004AAA13 /* acAlertView_iOS_okayCancelButton_highlighted.png */; };
 		928281061728D53C004AAA13 /* acAlertView_iOS_okayCancelButton_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928280FA1728D53C004AAA13 /* acAlertView_iOS_okayCancelButton_highlighted@2x.png */; };
 		928281091728E0AD004AAA13 /* ACTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928281081728E0AD004AAA13 /* ACTimelineViewController.m */; };
+		9282810C17297D68004AAA13 /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282810B17297D68004AAA13 /* email@2x.png */; };
+		9282810E17297E8A004AAA13 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9282810D17297E8A004AAA13 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,7 +97,6 @@
 		928280DE1728B98D004AAA13 /* appdotnet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appdotnet@2x.png"; sourceTree = "<group>"; };
 		928280DF1728B98D004AAA13 /* dribbble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dribbble@2x.png"; sourceTree = "<group>"; };
 		928280E01728B98D004AAA13 /* emerys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emerys@2x.png"; sourceTree = "<group>"; };
-		928280E11728B98D004AAA13 /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@2x.png"; sourceTree = "<group>"; };
 		928280E21728B98D004AAA13 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
 		928280ED1728D53C004AAA13 /* ACAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlertView.h; sourceTree = "<group>"; };
 		928280EE1728D53C004AAA13 /* ACAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlertView.m; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 		928280FA1728D53C004AAA13 /* acAlertView_iOS_okayCancelButton_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acAlertView_iOS_okayCancelButton_highlighted@2x.png"; sourceTree = "<group>"; };
 		928281071728E0AD004AAA13 /* ACTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACTimelineViewController.h; path = "View Controllers/ACTimelineViewController.h"; sourceTree = "<group>"; };
 		928281081728E0AD004AAA13 /* ACTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACTimelineViewController.m; path = "View Controllers/ACTimelineViewController.m"; sourceTree = "<group>"; };
+		9282810B17297D68004AAA13 /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
+		9282810D17297E8A004AAA13 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9282810E17297E8A004AAA13 /* MessageUI.framework in Frameworks */,
 				928280B417286A9D004AAA13 /* QuartzCore.framework in Frameworks */,
 				92828075172860C7004AAA13 /* UIKit.framework in Frameworks */,
 				92828077172860C7004AAA13 /* Foundation.framework in Frameworks */,
@@ -150,6 +153,7 @@
 		92828073172860C6004AAA13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9282810D17297E8A004AAA13 /* MessageUI.framework */,
 				928280B317286A9D004AAA13 /* QuartzCore.framework */,
 				92828074172860C6004AAA13 /* UIKit.framework */,
 				92828076172860C7004AAA13 /* Foundation.framework */,
@@ -271,9 +275,9 @@
 				928280DC1728B98D004AAA13 /* about_background@2x.png */,
 				928280DD1728B98D004AAA13 /* about_navbar@2x.png */,
 				928280DE1728B98D004AAA13 /* appdotnet@2x.png */,
+				9282810B17297D68004AAA13 /* email@2x.png */,
 				928280DF1728B98D004AAA13 /* dribbble@2x.png */,
 				928280E01728B98D004AAA13 /* emerys@2x.png */,
-				928280E11728B98D004AAA13 /* github@2x.png */,
 				928280E21728B98D004AAA13 /* twitter@2x.png */,
 			);
 			path = About;
@@ -407,7 +411,6 @@
 				928280E71728B98D004AAA13 /* appdotnet@2x.png in Resources */,
 				928280E81728B98D004AAA13 /* dribbble@2x.png in Resources */,
 				928280E91728B98D004AAA13 /* emerys@2x.png in Resources */,
-				928280EA1728B98D004AAA13 /* github@2x.png in Resources */,
 				928280EB1728B98D004AAA13 /* twitter@2x.png in Resources */,
 				928280FC1728D53C004AAA13 /* acAlertView_defaultBackground_alphaOnly.png in Resources */,
 				928280FD1728D53C004AAA13 /* acAlertView_defaultBackground_alphaOnly@2x.png in Resources */,
@@ -420,6 +423,7 @@
 				928281041728D53C004AAA13 /* acAlertView_iOS_okayButton_normal@2x.png in Resources */,
 				928281051728D53C004AAA13 /* acAlertView_iOS_okayCancelButton_highlighted.png in Resources */,
 				928281061728D53C004AAA13 /* acAlertView_iOS_okayCancelButton_highlighted@2x.png in Resources */,
+				9282810C17297D68004AAA13 /* email@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
