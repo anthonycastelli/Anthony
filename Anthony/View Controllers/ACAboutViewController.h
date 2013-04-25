@@ -16,7 +16,7 @@ typedef enum {
     ACAboutActionGitHub
 } ACAboutAction;
 
-@interface ACAboutViewController : UIViewController
+@interface ACAboutViewController : UIViewController <ACAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *navigationbar;
 @property (weak, nonatomic) IBOutlet UIImageView *background;

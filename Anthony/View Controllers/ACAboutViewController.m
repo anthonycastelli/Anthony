@@ -9,6 +9,12 @@
 #import "ACAboutViewController.h"
 
 @interface ACAboutViewController ()
+@property (nonatomic, retain) ACAlertView *emerysAlert;
+@property (nonatomic, retain) ACAlertView *twitterAlert;
+@property (nonatomic, retain) ACAlertView *appnetAlert;
+@property (nonatomic, retain) ACAlertView *dribbbleAlert;
+@property (nonatomic, retain) ACAlertView *githubAlert;
+
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 - (void)shakeView:(UIView *)view withDistance:(float)distance;
 @end
@@ -38,8 +44,15 @@
     
     // About me text
 	NSString *about = @"Anthony Castelli about string";
-    NSDictionary *defaultAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.437 green:0.494 blue:0.609 alpha:1.000]};
+    NSString *name = @"Anthony";
+    NSDictionary *defaultAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.437 green:0.494 blue:0.609 alpha:1.000],
+                                        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0]};
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:about attributes:defaultAttributes];
+    
+    NSDictionary *nameAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.437 green:0.494 blue:0.609 alpha:1.000],
+                                        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0]};
+    [attributedString setAttributes:nameAttributes range:[about rangeOfString:name]];
+    
     [self.textView setAttributedText:attributedString];
 }
 
@@ -90,6 +103,62 @@
 
 - (void)openAction:(ACAboutAction)action {
     
+    switch (action) {
+        case ACAboutActionEmerys:
+            self.emerysAlert = [[ACAlertView alloc] initWithTitle:@"Emerys"
+                                                          message:@"Emerys is my company I founded Christmas Eve 2012. Click okay to visit the website and see what apps I have released or whats coming soon."
+                                                         delegate:self
+                                                cancelButtonTitle:@"Cancel"
+                                                otherButtonTitles:@"Okay", nil];
+            [self.emerysAlert show];
+            break;
+        case ACAboutActionTwitter:
+            self.twitterAlert = [[ACAlertView alloc] initWithTitle:@"Twitter"
+                                                           message:@"Clicking okay will take you to Twitter.com/neueanthony where you can see what im tweeting about. Would you like to continue?"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Cancel"
+                                                 otherButtonTitles:@"Okay", nil];
+            [self.twitterAlert show];
+            break;
+        case ACAboutActionAppDotNet:
+            self.appnetAlert = [[ACAlertView alloc] initWithTitle:@"App.net"
+                                                          message:@"Clicking okay will take you to alpha.app.net/amc where you can see what im posting about. Would you like to continue?"
+                                                         delegate:self
+                                                cancelButtonTitle:@"Cancel"
+                                                otherButtonTitles:@"Okay", nil];
+            [self.appnetAlert show];
+            break;
+        case ACAboutActionDribbble:
+            self.dribbbleAlert = [[ACAlertView alloc] initWithTitle:@"Dribbble"
+                                                            message:@"Clicking okay will take you to dribbble.com/amc where you can see my lastest work. Would you like to take a look?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Okay", nil];
+            [self.dribbbleAlert show];
+            break;
+        case ACAboutActionGitHub:
+            self.githubAlert = [[ACAlertView alloc] initWithTitle:@"GitHub"
+                                                          message:@"Clicking okay will take you to GitHub.com/anthonycastelli where you can see what projects I have contributed to or what I have open sourced. Would you like to continue?"
+                                                         delegate:self
+                                                cancelButtonTitle:@"Cancel"
+                                                otherButtonTitles:@"Okay", nil];
+            [self.githubAlert show];
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - ACAlertView Delegate
+
+- (void)alertView:(ACAlertView *)alertView tappedButtonAtIndex:(NSInteger)index {
+    [ACAlertView setGlobalAcceptButtonDismissalAnimationStyle:ACAlertViewDismissalStyleFall];
+    [ACAlertView setGlobalCancelButtonDismissalAnimationStyle:ACAlertViewDismissalStyleFall];
+    if (alertView == self.emerysAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://emerys.co/"]];
+    if (alertView == self.twitterAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/neueanthony"]];
+    if (alertView == self.appnetAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://alpha.app.net/amc"]];
+    if (alertView == self.dribbbleAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://dribbble.com/amc"]];
+    if (alertView == self.githubAlert) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://github.com/anthonycastelli"]];
 }
 
 #pragma mark - Animations
