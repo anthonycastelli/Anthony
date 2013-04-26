@@ -17,6 +17,7 @@
 		925E1E67172A1804008B81E3 /* timelines_lines@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E61172A1804008B81E3 /* timelines_lines@2x.png */; };
 		925E1E68172A1804008B81E3 /* timelines_types@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E62172A1804008B81E3 /* timelines_types@2x.png */; };
 		925E1E6A172A182E008B81E3 /* timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E69172A182E008B81E3 /* timeline@2x.png */; };
+		925E1E6D172A18BE008B81E3 /* ACAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */; };
 		92828075172860C7004AAA13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828074172860C6004AAA13 /* UIKit.framework */; };
 		92828077172860C7004AAA13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828076172860C7004AAA13 /* Foundation.framework */; };
 		92828079172860C7004AAA13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828078172860C7004AAA13 /* CoreGraphics.framework */; };
@@ -77,6 +78,8 @@
 		925E1E61172A1804008B81E3 /* timelines_lines@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelines_lines@2x.png"; sourceTree = "<group>"; };
 		925E1E62172A1804008B81E3 /* timelines_types@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelines_types@2x.png"; sourceTree = "<group>"; };
 		925E1E69172A182E008B81E3 /* timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline@2x.png"; sourceTree = "<group>"; };
+		925E1E6B172A18BE008B81E3 /* ACAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACAppsViewController.h; path = "View Controllers/ACAppsViewController.h"; sourceTree = "<group>"; };
+		925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACAppsViewController.m; path = "View Controllers/ACAppsViewController.m"; sourceTree = "<group>"; };
 		92828071172860C6004AAA13 /* Anthony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anthony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92828074172860C6004AAA13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92828076172860C7004AAA13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -169,6 +172,15 @@
 			path = Timeline;
 			sourceTree = "<group>";
 		};
+		925E1E6E172A18CF008B81E3 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				925E1E6B172A18BE008B81E3 /* ACAppsViewController.h */,
+				925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */,
+			);
+			name = Apps;
+			sourceTree = "<group>";
+		};
 		92828068172860C6004AAA13 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +221,7 @@
 				928280B817289110004AAA13 /* Main View Controller */,
 				928280BC1728926A004AAA13 /* About */,
 				9282810A1728E0AF004AAA13 /* Timeline */,
+				925E1E6E172A18CF008B81E3 /* Apps */,
 				928280971728628B004AAA13 /* Internal Classes */,
 				9282807B172860C7004AAA13 /* Supporting Files */,
 			);
@@ -495,6 +508,7 @@
 				928280FB1728D53C004AAA13 /* ACAlertView.m in Sources */,
 				928281091728E0AD004AAA13 /* ACTimelineViewController.m in Sources */,
 				925E1E371729EE1F008B81E3 /* ACTimelineCell.m in Sources */,
+				925E1E6D172A18BE008B81E3 /* ACAppsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

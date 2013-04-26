@@ -33,9 +33,18 @@
     [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.1];
     [self animateView:self.timeline toPoint:CGPointMake(480, 30) withDelay:0.0];
     
+    
+    ACTimelineCell *cell = (ACTimelineCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+
+    [cell bounceImage:cell.background InToPoint:CGPointMake(480, 1338) withDelay:0.10];
+    [cell bounceImage:cell.dimonds InToPoint:CGPointMake(480, 1338) withDelay:0.08];
+    [cell bounceImage:cell.types InToPoint:CGPointMake(480, 1338) withDelay:0.06];
+    [cell bounceImage:cell.lines InToPoint:CGPointMake(480, 1338) withDelay:0.04];
+    [cell bounceImage:cell.info InToPoint:CGPointMake(480, 1338) withDelay:0.02];
+    
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
-    } afterDelay:0.1];
+    } afterDelay:0.07];
 }
 
 #pragma mark - Animations
