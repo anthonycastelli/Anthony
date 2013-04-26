@@ -18,6 +18,9 @@
 		925E1E68172A1804008B81E3 /* timelines_types@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E62172A1804008B81E3 /* timelines_types@2x.png */; };
 		925E1E6A172A182E008B81E3 /* timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E69172A182E008B81E3 /* timeline@2x.png */; };
 		925E1E6D172A18BE008B81E3 /* ACAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */; };
+		925E1E73172A1B81008B81E3 /* apps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E70172A1B81008B81E3 /* apps@2x.png */; };
+		925E1E75172A1B81008B81E3 /* apps_weather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E72172A1B81008B81E3 /* apps_weather@2x.png */; };
+		925E1E77172A1CD7008B81E3 /* apps_flashlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E76172A1CD7008B81E3 /* apps_flashlight@2x.png */; };
 		92828075172860C7004AAA13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828074172860C6004AAA13 /* UIKit.framework */; };
 		92828077172860C7004AAA13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828076172860C7004AAA13 /* Foundation.framework */; };
 		92828079172860C7004AAA13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828078172860C7004AAA13 /* CoreGraphics.framework */; };
@@ -80,6 +83,9 @@
 		925E1E69172A182E008B81E3 /* timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline@2x.png"; sourceTree = "<group>"; };
 		925E1E6B172A18BE008B81E3 /* ACAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACAppsViewController.h; path = "View Controllers/ACAppsViewController.h"; sourceTree = "<group>"; };
 		925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACAppsViewController.m; path = "View Controllers/ACAppsViewController.m"; sourceTree = "<group>"; };
+		925E1E70172A1B81008B81E3 /* apps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apps@2x.png"; sourceTree = "<group>"; };
+		925E1E72172A1B81008B81E3 /* apps_weather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apps_weather@2x.png"; sourceTree = "<group>"; };
+		925E1E76172A1CD7008B81E3 /* apps_flashlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apps_flashlight@2x.png"; sourceTree = "<group>"; };
 		92828071172860C6004AAA13 /* Anthony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anthony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92828074172860C6004AAA13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92828076172860C7004AAA13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,6 +185,16 @@
 				925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */,
 			);
 			name = Apps;
+			sourceTree = "<group>";
+		};
+		925E1E6F172A1B81008B81E3 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				925E1E70172A1B81008B81E3 /* apps@2x.png */,
+				925E1E76172A1CD7008B81E3 /* apps_flashlight@2x.png */,
+				925E1E72172A1B81008B81E3 /* apps_weather@2x.png */,
+			);
+			path = Apps;
 			sourceTree = "<group>";
 		};
 		92828068172860C6004AAA13 = {
@@ -312,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				928280BF1728AA4A004AAA13 /* About */,
+				925E1E6F172A1B81008B81E3 /* Apps */,
 				928280C01728AA4A004AAA13 /* Defaults */,
 				928280C41728AA4A004AAA13 /* Main */,
 				925E1E5C172A1804008B81E3 /* Timeline */,
@@ -486,6 +503,9 @@
 				925E1E67172A1804008B81E3 /* timelines_lines@2x.png in Resources */,
 				925E1E68172A1804008B81E3 /* timelines_types@2x.png in Resources */,
 				925E1E6A172A182E008B81E3 /* timeline@2x.png in Resources */,
+				925E1E73172A1B81008B81E3 /* apps@2x.png in Resources */,
+				925E1E75172A1B81008B81E3 /* apps_weather@2x.png in Resources */,
+				925E1E77172A1CD7008B81E3 /* apps_flashlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

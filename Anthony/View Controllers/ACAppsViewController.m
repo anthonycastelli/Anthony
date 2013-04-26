@@ -27,6 +27,12 @@
     [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.1];
     [self animateView:self.apps toPoint:CGPointMake(480, 30) withDelay:0.0];
     
+    ACTableViewCell *weatherCell = (ACTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [weatherCell bounceImageInToPoint:CGPointMake(480, 0) withDelay:0.0];
+    
+    ACTableViewCell *flashlightCell = (ACTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    [flashlightCell bounceImageInToPoint:CGPointMake(480, 0) withDelay:0.05];
+    
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
     } afterDelay:0.1];

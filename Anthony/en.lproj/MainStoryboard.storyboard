@@ -375,6 +375,97 @@
             </objects>
             <point key="canvasLocation" x="-782" y="-614"/>
         </scene>
+        <!--Apps View Controller-->
+        <scene sceneID="gPf-UU-68Y">
+            <objects>
+                <viewController storyboardIdentifier="Apps" id="Xdm-fY-oJD" customClass="ACAppsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GlM-fc-Eko">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aE5-V9-0wA">
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.29411764709999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="488" id="lYv-GX-WKK"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="105" id="tqA-9R-Dgx" customClass="ACTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jk-Zi-dCk">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="320" id="LNJ-KX-oXj"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="0Jk-Zi-dCk" firstAttribute="bottom" secondItem="tqA-9R-Dgx" secondAttribute="bottom" type="default" id="5LE-4l-Ukq"/>
+                                            <constraint firstItem="0Jk-Zi-dCk" firstAttribute="leading" secondItem="tqA-9R-Dgx" secondAttribute="leading" constant="320" id="fPm-tz-rF8"/>
+                                            <constraint firstItem="0Jk-Zi-dCk" firstAttribute="top" secondItem="tqA-9R-Dgx" secondAttribute="top" type="default" id="yj5-pJ-N2H"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageLabel" destination="0Jk-Zi-dCk" id="CK0-mL-euZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xdm-fY-oJD" id="VCF-UO-0Wh"/>
+                                    <outlet property="delegate" destination="Xdm-fY-oJD" id="a4a-Xt-mIy"/>
+                                </connections>
+                            </tableView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="about_navbar@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="8L5-To-9zI"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="apps@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="UaN-gj-xIF"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3b5-oL-euV" userLabel="Back Button">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="7bE-bb-tsP"/>
+                                    <constraint firstAttribute="width" constant="60" id="wtX-P6-HaU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="about_back_button_normal@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="about_back_button_highlighted@2x.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="Xdm-fY-oJD" eventType="touchUpInside" id="OJ8-xN-hj5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3b5-oL-euV" firstAttribute="bottom" secondItem="8L5-To-9zI" secondAttribute="bottom" type="default" id="2oS-BG-67L"/>
+                            <constraint firstItem="aE5-V9-0wA" firstAttribute="bottom" secondItem="GlM-fc-Eko" secondAttribute="bottom" type="default" id="3VO-Hy-9NS"/>
+                            <constraint firstItem="8L5-To-9zI" firstAttribute="top" secondItem="GlM-fc-Eko" secondAttribute="top" type="default" id="IMd-cF-OKU"/>
+                            <constraint firstItem="3b5-oL-euV" firstAttribute="top" secondItem="GlM-fc-Eko" secondAttribute="top" type="default" id="K5Y-Tc-WeA"/>
+                            <constraint firstItem="8L5-To-9zI" firstAttribute="trailing" secondItem="GlM-fc-Eko" secondAttribute="trailing" type="default" id="L8N-j6-mP3"/>
+                            <constraint firstItem="UaN-gj-xIF" firstAttribute="trailing" secondItem="GlM-fc-Eko" secondAttribute="trailing" type="default" id="PBB-24-3fD"/>
+                            <constraint firstItem="3b5-oL-euV" firstAttribute="leading" secondItem="GlM-fc-Eko" secondAttribute="leading" type="default" id="RZ2-fN-WLE"/>
+                            <constraint firstItem="aE5-V9-0wA" firstAttribute="trailing" secondItem="GlM-fc-Eko" secondAttribute="trailing" type="default" id="YrL-wu-alq"/>
+                            <constraint firstItem="8L5-To-9zI" firstAttribute="leading" secondItem="GlM-fc-Eko" secondAttribute="leading" type="default" id="Zg1-2C-rv8"/>
+                            <constraint firstItem="UaN-gj-xIF" firstAttribute="top" secondItem="GlM-fc-Eko" secondAttribute="top" type="default" id="gUS-qz-eFo"/>
+                            <constraint firstItem="3b5-oL-euV" firstAttribute="bottom" secondItem="UaN-gj-xIF" secondAttribute="bottom" type="default" id="nDP-v6-jRO"/>
+                            <constraint firstItem="aE5-V9-0wA" firstAttribute="leading" secondItem="GlM-fc-Eko" secondAttribute="leading" type="default" id="p0L-Gk-q1Q"/>
+                            <constraint firstItem="UaN-gj-xIF" firstAttribute="leading" secondItem="GlM-fc-Eko" secondAttribute="leading" type="default" id="wDn-1R-6q9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="apps" destination="UaN-gj-xIF" id="5vo-A7-YPv"/>
+                        <outlet property="backButton" destination="3b5-oL-euV" id="EPa-p0-iNM"/>
+                        <outlet property="tableView" destination="aE5-V9-0wA" id="vOv-jU-pcY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMI-51-qBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-782" y="64"/>
+        </scene>
     </scenes>
     <resources>
         <image name="about_anthony@2x.png" width="640" height="120"/>
@@ -383,6 +474,7 @@
         <image name="about_background@2x.png" width="640" height="216"/>
         <image name="about_navbar@2x.png" width="640" height="120"/>
         <image name="appdotnet@2x.png" width="128" height="128"/>
+        <image name="apps@2x.png" width="640" height="120"/>
         <image name="dribbble@2x.png" width="128" height="128"/>
         <image name="email@2x.png" width="128" height="128"/>
         <image name="emerys@2x.png" width="128" height="128"/>
@@ -409,6 +501,15 @@
                 <relationship kind="outlet" name="navigationbar" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="twitter" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ACAppsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ACAppsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="apps" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="ACTableViewCell" superclassName="UITableViewCell">
