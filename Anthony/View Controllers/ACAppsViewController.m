@@ -23,6 +23,13 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.3];
+    [self animateView:self.apps toPoint:CGPointMake(160, 30) withDelay:0.4];
+    [self.tableView reloadData];
+}
+
 - (IBAction)back:(id)sender {
     [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.1];
     [self animateView:self.apps toPoint:CGPointMake(480, 30) withDelay:0.0];
@@ -105,14 +112,17 @@
     }
     
     ACTableViewCell *aboutCell = (ACTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [aboutCell bounceImageInToPoint:CGPointMake(-160, 0) withDelay:0.0];
+    [aboutCell bounceImageInToPoint:CGPointMake(-160, 0) withDelay:0.05];
     
     ACTableViewCell *timelineCell = (ACTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    [timelineCell bounceImageInToPoint:CGPointMake(-160, 0) withDelay:0.05];
+    [timelineCell bounceImageInToPoint:CGPointMake(-160, 0) withDelay:0.1];
+    
+    [self animateView:self.backButton toPoint:CGPointMake(-50, 30) withDelay:0.0];
+    [self animateView:self.apps toPoint:CGPointMake(-160, 30) withDelay:0.0];
     
     [self performBlock:^{
         [self.navigationController pushViewController:controller animated:YES];
-    } afterDelay:0.2];
+    } afterDelay:0.1];
 }
 
 @end

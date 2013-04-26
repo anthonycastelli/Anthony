@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Weather.h"
-#import "Forecast.h"
 
 @class ACWeather;
 

@@ -21,6 +21,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UILabel *temp;
 @property (weak, nonatomic) IBOutlet UILabel *day;
 @property (weak, nonatomic) IBOutlet UIImageView *background;
+@property (weak, nonatomic) IBOutlet UILabel *loading;
 
 - (void)setForecastColor:(ACForecastDayColor)color;
 - (void)bounceView:(UIView *)view InToPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;

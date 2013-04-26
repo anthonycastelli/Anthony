@@ -8,6 +8,8 @@
 
 #import "ACWeather.h"
 
+static NSString *apiKey = @"6e91c402da114c92f56b6de260b19d08";
+
 @implementation ACWeather
 
 + (ACWeather *)currentWeather {
@@ -20,7 +22,7 @@
 }
 
 - (void)getWeatherForLatitude:(NSString *)latitude andLongitude:(NSString *)longitude {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://outsideweather.appspot.com/aweather?geo=%@,%@", latitude, longitude]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.forecast.io/forecast/%@/%@,%@", apiKey, latitude, longitude]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
