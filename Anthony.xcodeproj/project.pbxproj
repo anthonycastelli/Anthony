@@ -50,6 +50,10 @@
 		925E1EB3172A526E008B81E3 /* weather_snowy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E9B172A526E008B81E3 /* weather_snowy@2x.png */; };
 		925E1EB4172A526E008B81E3 /* weather_thunder_storm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E9C172A526E008B81E3 /* weather_thunder_storm@2x.png */; };
 		925E1EB5172A526E008B81E3 /* weather_thunder_storm_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1E9D172A526E008B81E3 /* weather_thunder_storm_small@2x.png */; };
+		925E1EB9172AD6A0008B81E3 /* ACWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1EB8172AD6A0008B81E3 /* ACWeather.m */; };
+		925E1EBF172AE85A008B81E3 /* CLPlacemark+ACExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1EBE172AE85A008B81E3 /* CLPlacemark+ACExtentions.m */; };
+		925E1EC5172AF6C1008B81E3 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1EC2172AF6C0008B81E3 /* Forecast.m */; };
+		925E1EC6172AF6C1008B81E3 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1EC4172AF6C0008B81E3 /* Weather.m */; };
 		92828075172860C7004AAA13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828074172860C6004AAA13 /* UIKit.framework */; };
 		92828077172860C7004AAA13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828076172860C7004AAA13 /* Foundation.framework */; };
 		92828079172860C7004AAA13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828078172860C7004AAA13 /* CoreGraphics.framework */; };
@@ -147,6 +151,14 @@
 		925E1E9B172A526E008B81E3 /* weather_snowy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_snowy@2x.png"; sourceTree = "<group>"; };
 		925E1E9C172A526E008B81E3 /* weather_thunder_storm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_thunder_storm@2x.png"; sourceTree = "<group>"; };
 		925E1E9D172A526E008B81E3 /* weather_thunder_storm_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_thunder_storm_small@2x.png"; sourceTree = "<group>"; };
+		925E1EB7172AD6A0008B81E3 /* ACWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACWeather.h; sourceTree = "<group>"; };
+		925E1EB8172AD6A0008B81E3 /* ACWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACWeather.m; sourceTree = "<group>"; };
+		925E1EBD172AE85A008B81E3 /* CLPlacemark+ACExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLPlacemark+ACExtentions.h"; path = "Internal Classes/ACExtentions/CLPlacemark+ACExtentions.h"; sourceTree = "<group>"; };
+		925E1EBE172AE85A008B81E3 /* CLPlacemark+ACExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLPlacemark+ACExtentions.m"; path = "Internal Classes/ACExtentions/CLPlacemark+ACExtentions.m"; sourceTree = "<group>"; };
+		925E1EC1172AF6C0008B81E3 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		925E1EC2172AF6C0008B81E3 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		925E1EC3172AF6C0008B81E3 /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		925E1EC4172AF6C0008B81E3 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		92828071172860C6004AAA13 /* Anthony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anthony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92828074172860C6004AAA13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92828076172860C7004AAA13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -297,6 +309,29 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		925E1EB6172AD6A0008B81E3 /* ACWeather */ = {
+			isa = PBXGroup;
+			children = (
+				925E1EC1172AF6C0008B81E3 /* Forecast.h */,
+				925E1EC2172AF6C0008B81E3 /* Forecast.m */,
+				925E1EC3172AF6C0008B81E3 /* Weather.h */,
+				925E1EC4172AF6C0008B81E3 /* Weather.m */,
+				925E1EB7172AD6A0008B81E3 /* ACWeather.h */,
+				925E1EB8172AD6A0008B81E3 /* ACWeather.m */,
+			);
+			path = ACWeather;
+			sourceTree = "<group>";
+		};
+		925E1EC0172AE85B008B81E3 /* ACExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				925E1EBD172AE85A008B81E3 /* CLPlacemark+ACExtentions.h */,
+				925E1EBE172AE85A008B81E3 /* CLPlacemark+ACExtentions.m */,
+			);
+			name = ACExtentions;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		92828068172860C6004AAA13 = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +396,8 @@
 		928280971728628B004AAA13 /* Internal Classes */ = {
 			isa = PBXGroup;
 			children = (
+				925E1EC0172AE85B008B81E3 /* ACExtentions */,
+				925E1EB6172AD6A0008B81E3 /* ACWeather */,
 				928280EC1728D53C004AAA13 /* ACAlertView */,
 				928280AF172869E7004AAA13 /* ACBlocks */,
 				928280981728628B004AAA13 /* ACBounceAnimation */,
@@ -659,6 +696,10 @@
 				925E1E7A172A4C1D008B81E3 /* ACWeatherViewController.m in Sources */,
 				925E1E7D172A4C7B008B81E3 /* ACCurrentCell.m in Sources */,
 				925E1E80172A4C8D008B81E3 /* ACForecastCell.m in Sources */,
+				925E1EB9172AD6A0008B81E3 /* ACWeather.m in Sources */,
+				925E1EBF172AE85A008B81E3 /* CLPlacemark+ACExtentions.m in Sources */,
+				925E1EC5172AF6C1008B81E3 /* Forecast.m in Sources */,
+				925E1EC6172AF6C1008B81E3 /* Weather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

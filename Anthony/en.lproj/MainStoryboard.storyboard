@@ -499,7 +499,7 @@
                                     <constraint firstAttribute="height" constant="488" id="Nx0-EM-Oyx"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentCell" rowHeight="120" id="Klz-J8-YNp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentCell" rowHeight="120" id="Klz-J8-YNp" customClass="ACCurrentCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -523,7 +523,8 @@
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="weather_clear_night@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="zAl-L4-bnU">
                                                     <constraints>
@@ -546,17 +547,19 @@
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reno, NV" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCe-U2-OqI">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="kXQ-Cf-LH3"/>
-                                                        <constraint firstAttribute="width" constant="84" id="yPp-gI-Xd8"/>
+                                                        <constraint firstAttribute="width" constant="123" id="oNt-aO-C58"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -582,8 +585,17 @@
                                             <constraint firstItem="zAl-L4-bnU" firstAttribute="centerX" secondItem="jld-0T-n3Q" secondAttribute="centerX" type="default" id="wqc-4O-ijz"/>
                                             <constraint firstItem="CES-28-JHD" firstAttribute="leading" secondItem="pL4-4Z-I26" secondAttribute="leading" type="default" id="xxi-15-UvH"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="background" destination="jld-0T-n3Q" id="FkO-cV-IX4"/>
+                                            <outlet property="condition" destination="CES-28-JHD" id="Ou3-6w-1Cp"/>
+                                            <outlet property="condtionImage" destination="zAl-L4-bnU" id="fmy-nm-lso"/>
+                                            <outlet property="currentTemp" destination="agX-jm-eHk" id="sHH-R4-LFA"/>
+                                            <outlet property="day" destination="5ky-V9-NAJ" id="8Hu-OV-3fq"/>
+                                            <outlet property="highLow" destination="pL4-4Z-I26" id="G1a-Ad-Wmw"/>
+                                            <outlet property="location" destination="kCe-U2-OqI" id="Anl-rO-d7r"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ForecastCell" rowHeight="91" id="9R8-x2-gJI">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ForecastCell" rowHeight="91" id="9R8-x2-gJI" customClass="ACForecastCell">
                                         <rect key="frame" x="0.0" y="142" width="320" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -633,6 +645,12 @@
                                             <constraint firstItem="qdA-bJ-duK" firstAttribute="top" secondItem="9R8-x2-gJI" secondAttribute="top" constant="34" id="lJD-z1-jj9"/>
                                             <constraint firstItem="KWu-oc-FCp" firstAttribute="top" secondItem="S3k-7e-JEo" secondAttribute="top" type="default" id="sES-ea-Xzp"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="background" destination="h1c-We-r4L" id="lCx-lp-sA6"/>
+                                            <outlet property="condition" destination="KWu-oc-FCp" id="oTs-7W-uMh"/>
+                                            <outlet property="day" destination="qdA-bJ-duK" id="ip4-ss-sF7"/>
+                                            <outlet property="temp" destination="S3k-7e-JEo" id="ogP-Gx-m9k"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -715,6 +733,27 @@
                 <relationship kind="outlet" name="apps" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ACCurrentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ACCurrentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="condition" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="condtionImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="currentTemp" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="day" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="highLow" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="location" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ACForecastCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ACForecastCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="condition" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="day" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="temp" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ACTableViewCell" superclassName="UITableViewCell">

@@ -17,16 +17,16 @@ typedef enum {
 
 @interface ACCurrentCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *currentTemp;
-@property (weak, nonatomic) IBOutlet UILabel *highLow;
-@property (weak, nonatomic) IBOutlet UILabel *condition;
-@property (weak, nonatomic) IBOutlet UILabel *day;
-@property (weak, nonatomic) IBOutlet UILabel *location;
-@property (weak, nonatomic) IBOutlet UIImageView *condtionImage;
-@property (weak, nonatomic) IBOutlet UIImageView *background;
+@property (retain, nonatomic) IBOutlet UILabel *currentTemp;
+@property (retain, nonatomic) IBOutlet UILabel *highLow;
+@property (retain, nonatomic) IBOutlet UILabel *condition;
+@property (retain, nonatomic) IBOutlet UILabel *day;
+@property (retain, nonatomic) IBOutlet UILabel *location;
+@property (retain, nonatomic) IBOutlet UIImageView *condtionImage;
+@property (retain, nonatomic) IBOutlet UIImageView *background;
 
 - (void)setForecastColor:(ACForecastColor)color;
-- (void)spinView:(UIView *)view;
+- (void)spinView:(UIView *)view withDuration:(CGFloat)duration andRotations:(CGFloat)rotations repeat:(float)repeat;
 - (void)bounceView:(UIView *)view InToPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 
 @end
