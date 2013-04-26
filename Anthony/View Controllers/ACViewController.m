@@ -9,12 +9,7 @@
 #import "ACViewController.h"
 #import "ACTableViewCell.h"
 #import "ACAboutViewController.h"
-
-#define aboutTime 0.2
-#define timelineTime 0.25
-#define appsTime 0.3
-#define designTime 0.35
-#define wwdcTime 0.4
+#import "ACTimelineViewController.h"
 
 @interface ACViewController ()
 - (void)configureCell:(ACTableViewCell *)cell atIindexPath:(NSIndexPath *)indexPath;
@@ -60,23 +55,23 @@
     switch (indexPath.row) {
         case 0:
             [cell.imageLabel setImage:[UIImage imageNamed:@"about_button"]];
-            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:aboutTime];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:0.2];
             break;
         case 1:
             [cell.imageLabel setImage:[UIImage imageNamed:@"timeline_button"]];
-            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:timelineTime];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:0.25];
             break;
         case 2:
             [cell.imageLabel setImage:[UIImage imageNamed:@"apps_button"]];
-            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:appsTime];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:0.3];
             break;
         case 3:
             [cell.imageLabel setImage:[UIImage imageNamed:@"designs_button"]];
-            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:designTime];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:0.35];
             break;
         case 4:
             [cell.imageLabel setImage:[UIImage imageNamed:@"wwdc_button"]];
-            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:wwdcTime];
+            [cell bounceImageInToPoint:CGPointMake(160, 0) withDelay:0.40];
             break;
         default:
             break;
@@ -122,7 +117,7 @@
     
     [self performBlock:^{
         [self.navigationController pushViewController:controller animated:YES];
-    } afterDelay:0.15];
+    } afterDelay:0.2];
 }
 
 @end

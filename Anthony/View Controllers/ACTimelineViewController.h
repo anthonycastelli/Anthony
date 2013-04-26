@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACTimelineViewController : UIViewController
+@interface ACTimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *timeline;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *background;
-@property (weak, nonatomic) IBOutlet UIImageView *dimonds;
-@property (weak, nonatomic) IBOutlet UIImageView *types;
-@property (weak, nonatomic) IBOutlet UIImageView *lines;
-@property (weak, nonatomic) IBOutlet UIImageView *info;
 
 - (IBAction)back:(id)sender;
 
