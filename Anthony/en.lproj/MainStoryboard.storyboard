@@ -265,6 +265,11 @@
                                     <constraint firstAttribute="height" constant="60" id="cRc-BS-xXu"/>
                                 </constraints>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="timeline@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="jOc-ON-JVB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Sfn-vb-u2b"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ow0-8a-FMa" userLabel="Back Button">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="XFf-pn-leI"/>
@@ -346,20 +351,24 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="jOc-ON-JVB" firstAttribute="bottom" secondItem="Ow0-8a-FMa" secondAttribute="bottom" type="default" id="0Jc-Lv-ZD3"/>
                             <constraint firstItem="Ow0-8a-FMa" firstAttribute="top" secondItem="pgj-On-E26" secondAttribute="top" type="default" id="0gl-jK-vaH"/>
                             <constraint firstItem="bA9-9b-PuB" firstAttribute="leading" secondItem="pgj-On-E26" secondAttribute="leading" type="default" id="13G-cg-02i"/>
                             <constraint firstItem="vw4-fw-Uv6" firstAttribute="trailing" secondItem="pgj-On-E26" secondAttribute="trailing" type="default" id="2h1-nu-nNJ"/>
-                            <constraint firstItem="Ow0-8a-FMa" firstAttribute="leading" secondItem="pgj-On-E26" secondAttribute="leading" constant="320" id="ANK-3B-wNh"/>
-                            <constraint firstItem="Ow0-8a-FMa" firstAttribute="bottom" secondItem="vw4-fw-Uv6" secondAttribute="bottom" type="default" id="LKd-ru-7Hg"/>
                             <constraint firstItem="bA9-9b-PuB" firstAttribute="trailing" secondItem="pgj-On-E26" secondAttribute="trailing" type="default" id="Uxm-VX-9hw"/>
                             <constraint firstItem="vw4-fw-Uv6" firstAttribute="top" secondItem="pgj-On-E26" secondAttribute="top" type="default" id="VWQ-g1-wrP"/>
+                            <constraint firstItem="jOc-ON-JVB" firstAttribute="leading" secondItem="Ow0-8a-FMa" secondAttribute="leading" type="default" id="day-gt-PaH"/>
+                            <constraint firstItem="jOc-ON-JVB" firstAttribute="leading" secondItem="pgj-On-E26" secondAttribute="leading" constant="320" id="i7O-1O-Crk"/>
                             <constraint firstItem="vw4-fw-Uv6" firstAttribute="leading" secondItem="pgj-On-E26" secondAttribute="leading" type="default" id="nE4-ZG-qDD"/>
+                            <constraint firstItem="jOc-ON-JVB" firstAttribute="top" secondItem="pgj-On-E26" secondAttribute="top" type="default" id="qVh-Bc-LiK"/>
+                            <constraint firstItem="jOc-ON-JVB" firstAttribute="bottom" secondItem="vw4-fw-Uv6" secondAttribute="bottom" type="default" id="qjZ-nC-8Ea"/>
                             <constraint firstItem="bA9-9b-PuB" firstAttribute="bottom" secondItem="pgj-On-E26" secondAttribute="bottom" type="default" id="zo7-UJ-rXZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Ow0-8a-FMa" id="2n0-y5-cvU"/>
                         <outlet property="tableView" destination="bA9-9b-PuB" id="6bg-6y-fwh"/>
+                        <outlet property="timeline" destination="jOc-ON-JVB" id="HXb-ZF-Ot0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe9-fA-b0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -377,6 +386,7 @@
         <image name="dribbble@2x.png" width="128" height="128"/>
         <image name="email@2x.png" width="128" height="128"/>
         <image name="emerys@2x.png" width="128" height="128"/>
+        <image name="timeline@2x.png" width="640" height="120"/>
         <image name="twitter@2x.png" width="128" height="128"/>
     </resources>
     <classes>
