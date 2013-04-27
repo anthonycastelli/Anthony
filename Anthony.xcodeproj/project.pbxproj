@@ -80,7 +80,7 @@
 		925E1F4E172B32EE008B81E3 /* weather_snowy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F17172B32EE008B81E3 /* weather_snowy@2x.png */; };
 		925E1F4F172B32EE008B81E3 /* weather_thunder_storm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F18172B32EE008B81E3 /* weather_thunder_storm@2x.png */; };
 		925E1F50172B32EE008B81E3 /* weather_thunder_storm_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F19172B32EE008B81E3 /* weather_thunder_storm_small@2x.png */; };
-		925E1F54172B3CC4008B81E3 /* ACPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1F53172B3CC4008B81E3 /* ACPopup.m */; };
+		925E1F59172B78D7008B81E3 /* ACFlashlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1F58172B78D7008B81E3 /* ACFlashlightViewController.m */; };
 		92828075172860C7004AAA13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828074172860C6004AAA13 /* UIKit.framework */; };
 		92828077172860C7004AAA13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828076172860C7004AAA13 /* Foundation.framework */; };
 		92828079172860C7004AAA13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828078172860C7004AAA13 /* CoreGraphics.framework */; };
@@ -200,8 +200,8 @@
 		925E1F17172B32EE008B81E3 /* weather_snowy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_snowy@2x.png"; sourceTree = "<group>"; };
 		925E1F18172B32EE008B81E3 /* weather_thunder_storm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_thunder_storm@2x.png"; sourceTree = "<group>"; };
 		925E1F19172B32EE008B81E3 /* weather_thunder_storm_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_thunder_storm_small@2x.png"; sourceTree = "<group>"; };
-		925E1F52172B3CC4008B81E3 /* ACPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACPopup.h; sourceTree = "<group>"; };
-		925E1F53172B3CC4008B81E3 /* ACPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACPopup.m; sourceTree = "<group>"; };
+		925E1F57172B78D7008B81E3 /* ACFlashlightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACFlashlightViewController.h; path = "View Controllers/ACFlashlightViewController.h"; sourceTree = "<group>"; };
+		925E1F58172B78D7008B81E3 /* ACFlashlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACFlashlightViewController.m; path = "View Controllers/ACFlashlightViewController.m"; sourceTree = "<group>"; };
 		92828071172860C6004AAA13 /* Anthony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anthony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92828074172860C6004AAA13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92828076172860C7004AAA13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -269,14 +269,9 @@
 		925E1E6E172A18CF008B81E3 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
-				925E1E6B172A18BE008B81E3 /* ACAppsViewController.h */,
-				925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */,
-				925E1E78172A4C1D008B81E3 /* ACWeatherViewController.h */,
-				925E1E79172A4C1D008B81E3 /* ACWeatherViewController.m */,
-				925E1E7B172A4C7B008B81E3 /* ACCurrentCell.h */,
-				925E1E7C172A4C7B008B81E3 /* ACCurrentCell.m */,
-				925E1E7E172A4C8D008B81E3 /* ACForecastCell.h */,
-				925E1E7F172A4C8D008B81E3 /* ACForecastCell.m */,
+				925E1F56172B78C4008B81E3 /* Apps List */,
+				925E1F55172B789D008B81E3 /* Weather */,
+				925E1F5A172B78DA008B81E3 /* Flashlight */,
 			);
 			name = Apps;
 			sourceTree = "<group>";
@@ -424,13 +419,35 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
-		925E1F51172B3CC4008B81E3 /* ACPopup */ = {
+		925E1F55172B789D008B81E3 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				925E1F52172B3CC4008B81E3 /* ACPopup.h */,
-				925E1F53172B3CC4008B81E3 /* ACPopup.m */,
+				925E1E78172A4C1D008B81E3 /* ACWeatherViewController.h */,
+				925E1E79172A4C1D008B81E3 /* ACWeatherViewController.m */,
+				925E1E7B172A4C7B008B81E3 /* ACCurrentCell.h */,
+				925E1E7C172A4C7B008B81E3 /* ACCurrentCell.m */,
+				925E1E7E172A4C8D008B81E3 /* ACForecastCell.h */,
+				925E1E7F172A4C8D008B81E3 /* ACForecastCell.m */,
 			);
-			path = ACPopup;
+			name = Weather;
+			sourceTree = "<group>";
+		};
+		925E1F56172B78C4008B81E3 /* Apps List */ = {
+			isa = PBXGroup;
+			children = (
+				925E1E6B172A18BE008B81E3 /* ACAppsViewController.h */,
+				925E1E6C172A18BE008B81E3 /* ACAppsViewController.m */,
+			);
+			name = "Apps List";
+			sourceTree = "<group>";
+		};
+		925E1F5A172B78DA008B81E3 /* Flashlight */ = {
+			isa = PBXGroup;
+			children = (
+				925E1F57172B78D7008B81E3 /* ACFlashlightViewController.h */,
+				925E1F58172B78D7008B81E3 /* ACFlashlightViewController.m */,
+			);
+			name = Flashlight;
 			sourceTree = "<group>";
 		};
 		92828068172860C6004AAA13 = {
@@ -497,7 +514,6 @@
 		928280971728628B004AAA13 /* Internal Classes */ = {
 			isa = PBXGroup;
 			children = (
-				925E1F51172B3CC4008B81E3 /* ACPopup */,
 				925E1EC0172AE85B008B81E3 /* ACExtentions */,
 				925E1EB6172AD6A0008B81E3 /* ACWeather */,
 				928280EC1728D53C004AAA13 /* ACAlertView */,
@@ -759,7 +775,7 @@
 				925E1ED9172B1171008B81E3 /* WeatherFlags.m in Sources */,
 				925E1EDA172B1171008B81E3 /* WeatherHourly.m in Sources */,
 				925E1EDB172B1171008B81E3 /* WeatherMinutely.m in Sources */,
-				925E1F54172B3CC4008B81E3 /* ACPopup.m in Sources */,
+				925E1F59172B78D7008B81E3 /* ACFlashlightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
