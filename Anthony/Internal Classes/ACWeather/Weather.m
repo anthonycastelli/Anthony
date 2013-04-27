@@ -2,12 +2,13 @@
 //  Weather.m
 //  
 //
-//  Created by Anthony Castelli on 4/26/13.
+//  Created by Anthony Castelli on 4/27/13.
 //  Copyright (c) 2013 Emerys. All rights reserved.
 //
 
 #import "Weather.h"
 
+#import "Alert.h"
 #import "WeatherCurrently.h"
 #import "WeatherDaily.h"
 #import "WeatherFlags.h"
@@ -16,6 +17,7 @@
 
 @implementation Weather
 
+@synthesize alerts;
 @synthesize currently;
 @synthesize daily;
 @synthesize flags;
@@ -27,6 +29,7 @@
 @synthesize timezone;
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.alerts forKey:@"alerts"];
     [encoder encodeObject:self.currently forKey:@"currently"];
     [encoder encodeObject:self.daily forKey:@"daily"];
     [encoder encodeObject:self.flags forKey:@"flags"];
@@ -40,6 +43,7 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if ((self = [super init])) {
+        self.alerts = [decoder decodeObjectForKey:@"alerts"];
         self.currently = [decoder decodeObjectForKey:@"currently"];
         self.daily = [decoder decodeObjectForKey:@"daily"];
         self.flags = [decoder decodeObjectForKey:@"flags"];
@@ -66,50 +70,56 @@
     if (![aDictionary isKindOfClass:[NSDictionary class]]) {
         return;
     }
-
-    [self setValuesForKeysWithDictionary:aDictionary];
-
+    @try {
+        [self setValuesForKeysWithDictionary:aDictionary];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+    }
+    @finally {
+        
+    }
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key {
-
-    if ([key isEqualToString:@"currently"]) {
-
+    if ([key isEqualToString:@"alerts"]) {
+        if ([value isKindOfClass:[NSArray class]]) {
+            NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+            for (id valueMember in value) {
+                Alert *populatedMember = [Alert instanceFromDictionary:valueMember];
+                [myMembers addObject:populatedMember];
+            }
+            self.alerts = myMembers;
+        }
+    } else if ([key isEqualToString:@"currently"]) {
         if ([value isKindOfClass:[NSDictionary class]]) {
             self.currently = [WeatherCurrently instanceFromDictionary:value];
         }
-
     } else if ([key isEqualToString:@"daily"]) {
-
         if ([value isKindOfClass:[NSDictionary class]]) {
             self.daily = [WeatherDaily instanceFromDictionary:value];
         }
-
     } else if ([key isEqualToString:@"flags"]) {
-
         if ([value isKindOfClass:[NSDictionary class]]) {
             self.flags = [WeatherFlags instanceFromDictionary:value];
         }
-
     } else if ([key isEqualToString:@"hourly"]) {
-
         if ([value isKindOfClass:[NSDictionary class]]) {
             self.hourly = [WeatherHourly instanceFromDictionary:value];
         }
-
     } else if ([key isEqualToString:@"minutely"]) {
-
         if ([value isKindOfClass:[NSDictionary class]]) {
             self.minutely = [WeatherMinutely instanceFromDictionary:value];
         }
-
     } else {
         @try {
             [super setValue:value forKey:key];
-            //[super setValue:value forUndefinedKey:key];
         }
         @catch (NSException *exception) {
-            NSLog(@"%@", exception);
+            NSLog(@"Exception: %@", exception);
+        }
+        @finally {
+            
         }
     }
 

@@ -2,7 +2,7 @@
 //  WeatherDaily.m
 //  
 //
-//  Created by Anthony Castelli on 4/26/13.
+//  Created by Anthony Castelli on 4/27/13.
 //  Copyright (c) 2013 Emerys. All rights reserved.
 //
 
@@ -32,49 +32,47 @@
 }
 
 + (WeatherDaily *)instanceFromDictionary:(NSDictionary *)aDictionary {
-
     WeatherDaily *instance = [[WeatherDaily alloc] init];
     [instance setAttributesFromDictionary:aDictionary];
     return instance;
-
 }
 
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-
     if (![aDictionary isKindOfClass:[NSDictionary class]]) {
         return;
     }
-
-    [self setValuesForKeysWithDictionary:aDictionary];
-
+    @try {
+        [self setValuesForKeysWithDictionary:aDictionary];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+    }
+    @finally {
+        
+    }
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key {
-
     if ([key isEqualToString:@"data"]) {
-
         if ([value isKindOfClass:[NSArray class]]) {
-
             NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
             for (id valueMember in value) {
                 Datum *populatedMember = [Datum instanceFromDictionary:valueMember];
                 [myMembers addObject:populatedMember];
             }
-
             self.data = myMembers;
-
         }
-
     } else {
         @try {
             [super setValue:value forKey:key];
-            //[super setValue:value forUndefinedKey:key];
         }
         @catch (NSException *exception) {
-            NSLog(@"%@", exception);
+            NSLog(@"Exception: %@", exception);
+        }
+        @finally {
+            
         }
     }
-
 }
 
 

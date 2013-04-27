@@ -2,7 +2,7 @@
 //  Datum.m
 //  
 //
-//  Created by Anthony Castelli on 4/26/13.
+//  Created by Anthony Castelli on 4/27/13.
 //  Copyright (c) 2013 Emerys. All rights reserved.
 //
 
@@ -81,21 +81,24 @@
 }
 
 + (Datum *)instanceFromDictionary:(NSDictionary *)aDictionary {
-
     Datum *instance = [[Datum alloc] init];
     [instance setAttributesFromDictionary:aDictionary];
     return instance;
-
 }
 
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-
     if (![aDictionary isKindOfClass:[NSDictionary class]]) {
         return;
     }
-
-    [self setValuesForKeysWithDictionary:aDictionary];
-
+    @try {
+        [self setValuesForKeysWithDictionary:aDictionary];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+    }
+    @finally {
+        
+    }
 }
 
 @end

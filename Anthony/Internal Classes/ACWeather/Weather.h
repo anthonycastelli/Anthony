@@ -2,11 +2,12 @@
 //  Weather.h
 //  
 //
-//  Created by Anthony Castelli on 4/26/13.
+//  Created by Anthony Castelli on 4/27/13.
 //  Copyright (c) 2013 Emerys. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "Alert.h"
 #import "WeatherCurrently.h"
 #import "WeatherDaily.h"
 #import "WeatherFlags.h"
@@ -20,6 +21,7 @@
 @class WeatherMinutely;
 
 @interface Weather : NSObject <NSCoding> {
+    NSArray *alerts;
     WeatherCurrently *currently;
     WeatherDaily *daily;
     WeatherFlags *flags;
@@ -31,6 +33,7 @@
     NSString *timezone;
 }
 
+@property (nonatomic, copy) NSArray *alerts;
 @property (nonatomic, strong) WeatherCurrently *currently;
 @property (nonatomic, strong) WeatherDaily *daily;
 @property (nonatomic, strong) WeatherFlags *flags;

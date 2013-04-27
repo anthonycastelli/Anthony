@@ -11,6 +11,7 @@
 #import "ACWeather.h"
 #import "ACCurrentCell.h"
 #import "ACForecastCell.h"
+#import "Datum.h"
 
 @interface ACWeatherViewController () <CLLocationManagerDelegate, ACWeatherDelegate>
 @property (nonatomic, assign) BOOL refreshed;
