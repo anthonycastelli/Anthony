@@ -141,7 +141,13 @@
     } else if ([key isEqualToString:@"metar-stations"]) {
         [self setValue:value forKey:@"metarStations"];
     } else {
-        [super setValue:value forUndefinedKey:key];
+        @try {
+            //[super setValue:value forKey:key];
+            [super setValue:value forUndefinedKey:key];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception);
+        }
     }
 
 }

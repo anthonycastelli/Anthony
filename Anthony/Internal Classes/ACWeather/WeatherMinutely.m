@@ -66,7 +66,13 @@
         }
 
     } else {
-        [super setValue:value forKey:key];
+        @try {
+            [super setValue:value forKey:key];
+            //[super setValue:value forUndefinedKey:key];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception);
+        }
     }
 
 }

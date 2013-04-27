@@ -14,11 +14,12 @@
 
 @interface ACWeatherViewController () <CLLocationManagerDelegate, ACWeatherDelegate>
 @property (nonatomic, assign) BOOL refreshed;
-@property (nonatomic, retain) ACPopup *popup;
+@property (nonatomic, retain) UIRefreshControl *refreshControl;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) NSString *location;
 @property (nonatomic, retain) NSDictionary *weatherData;
 
+- (void)getWeather;
 - (void)animateViewsIn;
 - (void)animateViewsOut;
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
@@ -32,29 +33,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
-    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-    [self.locationManager setDelegate:self];
-    [self.locationManager startUpdatingLocation]; // Normally I would check for 'locationServicesEnabled' but for this purpose i'll assume its active
-    
-    self.refreshed = NO;
-    
-    self.popup = [[ACPopup alloc] init];
-    self.popup.text = self.pickLoadingString;
-    self.popup.popupColor = [UIColor whiteColor];
-    [self.popup sizeToFit];
-    self.popup.center = self.view.center;
-    __weak ACPopup *pop = self.popup;
-    self.popup.onAnimationCompletion = ^{
-        [pop removeFromSuperview];
-    };
-    [self performBlock:^{
-        [self.view addSubview:self.popup];
-    } afterDelay:0.4];
-    
-    [self animateViewsIn];
+    [self getWeather];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,7 +54,26 @@
     [self animateViewsOut];
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
-    } afterDelay:0.6];
+    } afterDelay:0.2];
+}
+
+- (void)getWeather {
+    [self.refreshControl beginRefreshing];
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:self.pickLoadingString];
+    [self.refreshControl setAttributedTitle:string];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [self.locationManager setDelegate:self];
+    [self.locationManager startUpdatingLocation]; // Normally I would check for 'locationServicesEnabled' but for this purpose i'll assume its active
+    
+    self.refreshed = NO;
+}
+
+- (void)handleRefresh:(UIRefreshControl *)control {
+    [self getWeather];
 }
 
 #pragma mark - Location
@@ -89,6 +92,10 @@
             [[ACWeather currentWeather] getWeatherForLatitude:latitiude andLongitude:longitiude];
         } else {
             NSLog(@"%@", error.debugDescription);
+            [self.refreshControl endRefreshing];
+            // Set the refresh controls string to nil so we dont see the old message
+            NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@""];
+            [self.refreshControl setAttributedTitle:string];
         }
     }];
     [manager stopUpdatingLocation];
@@ -102,9 +109,13 @@
     
     self.refreshed = YES; // Used to animate the cells after the weather data is returned
     
+    // Delays the endRefreshing to make the loading string easier to read
     [self performBlock:^{
-        [self.popup flash];
-    } afterDelay:0.2];
+        [self.refreshControl endRefreshing];
+        // Set the refresh controls string to nil so we dont see the old message
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@""];
+        [self.refreshControl setAttributedTitle:string];
+    } afterDelay:1];
 }
 
 #pragma mark - Animations
@@ -115,41 +126,41 @@
 }
 
 - (void)animateViewsOut {
-    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.1];
+    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.03];
     [self animateView:self.weather toPoint:CGPointMake(480, 30) withDelay:0.0];
     
     ACCurrentCell *current = (ACCurrentCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [current bounceView:current.background InToPoint:CGPointMake(480, 60) withDelay:0.0];
-    [current bounceView:current.location InToPoint:CGPointMake(566, 21) withDelay:0.1];
-    [current bounceView:current.condtionImage InToPoint:CGPointMake(480, 60) withDelay:0.15];
-    [current bounceView:current.currentTemp InToPoint:CGPointMake(377, 28) withDelay:0.2];
-    [current bounceView:current.highLow InToPoint:CGPointMake(377, 50) withDelay:0.25];
-    [current bounceView:current.condition InToPoint:CGPointMake(377, 65) withDelay:0.3];
-    [current bounceView:current.day InToPoint:CGPointMake(377, 90) withDelay:0.35];
+    [current bounceView:current.location InToPoint:CGPointMake(566, 21) withDelay:0.05];
+    [current bounceView:current.condtionImage InToPoint:CGPointMake(480, 60) withDelay:0.1];
+    [current bounceView:current.currentTemp InToPoint:CGPointMake(377, 28) withDelay:0.15];
+    [current bounceView:current.highLow InToPoint:CGPointMake(377, 50) withDelay:0.20];
+    [current bounceView:current.condition InToPoint:CGPointMake(377, 65) withDelay:0.25];
+    [current bounceView:current.day InToPoint:CGPointMake(377, 90) withDelay:0.30];
     
     ACForecastCell *forecastOne = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    [forecastOne bounceView:forecastOne.background InToPoint:CGPointMake(480, 45) withDelay:0.1];
-    [forecastOne bounceView:forecastOne.condition InToPoint:CGPointMake(372, 45) withDelay:0.15];
-    [forecastOne bounceView:forecastOne.temp InToPoint:CGPointMake(480, 45) withDelay:0.20];
-    [forecastOne bounceView:forecastOne.day InToPoint:CGPointMake(571, 45) withDelay:0.25];
+    [forecastOne bounceView:forecastOne.background InToPoint:CGPointMake(480, 45) withDelay:0.03];
+    [forecastOne bounceView:forecastOne.condition InToPoint:CGPointMake(372, 45) withDelay:0.05];
+    [forecastOne bounceView:forecastOne.temp InToPoint:CGPointMake(480, 45) withDelay:0.07];
+    [forecastOne bounceView:forecastOne.day InToPoint:CGPointMake(571, 45) withDelay:0.09];
     
     ACForecastCell *forecastTwo = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    [forecastTwo bounceView:forecastTwo.background InToPoint:CGPointMake(480, 45) withDelay:0.2];
-    [forecastTwo bounceView:forecastTwo.condition InToPoint:CGPointMake(372, 45) withDelay:0.25];
-    [forecastTwo bounceView:forecastTwo.temp InToPoint:CGPointMake(480, 45) withDelay:0.30];
-    [forecastTwo bounceView:forecastTwo.day InToPoint:CGPointMake(571, 45) withDelay:0.35];
+    [forecastTwo bounceView:forecastTwo.background InToPoint:CGPointMake(480, 45) withDelay:0.05];
+    [forecastTwo bounceView:forecastTwo.condition InToPoint:CGPointMake(372, 45) withDelay:0.07];
+    [forecastTwo bounceView:forecastTwo.temp InToPoint:CGPointMake(480, 45) withDelay:0.09];
+    [forecastTwo bounceView:forecastTwo.day InToPoint:CGPointMake(571, 45) withDelay:0.10];
     
     ACForecastCell *forecastThree = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    [forecastThree bounceView:forecastThree.background InToPoint:CGPointMake(480, 45) withDelay:0.3];
-    [forecastThree bounceView:forecastThree.condition InToPoint:CGPointMake(372, 45) withDelay:0.35];
-    [forecastThree bounceView:forecastThree.temp InToPoint:CGPointMake(480, 45) withDelay:0.40];
-    [forecastThree bounceView:forecastThree.day InToPoint:CGPointMake(571, 45) withDelay:0.45];
+    [forecastThree bounceView:forecastThree.background InToPoint:CGPointMake(480, 45) withDelay:0.07];
+    [forecastThree bounceView:forecastThree.condition InToPoint:CGPointMake(372, 45) withDelay:0.09];
+    [forecastThree bounceView:forecastThree.temp InToPoint:CGPointMake(480, 45) withDelay:0.11];
+    [forecastThree bounceView:forecastThree.day InToPoint:CGPointMake(571, 45) withDelay:0.12];
     
     ACForecastCell *forecastFour = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
-    [forecastFour bounceView:forecastFour.background InToPoint:CGPointMake(480, 45) withDelay:0.4];
-    [forecastFour bounceView:forecastFour.condition InToPoint:CGPointMake(372, 45) withDelay:0.45];
-    [forecastFour bounceView:forecastFour.temp InToPoint:CGPointMake(480, 45) withDelay:0.50];
-    [forecastFour bounceView:forecastFour.day InToPoint:CGPointMake(571, 45) withDelay:0.55];
+    [forecastFour bounceView:forecastFour.background InToPoint:CGPointMake(480, 45) withDelay:0.08];
+    [forecastFour bounceView:forecastFour.condition InToPoint:CGPointMake(372, 45) withDelay:0.10];
+    [forecastFour bounceView:forecastFour.temp InToPoint:CGPointMake(480, 45) withDelay:0.11];
+    [forecastFour bounceView:forecastFour.day InToPoint:CGPointMake(571, 45) withDelay:0.12];
 }
 
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay {
@@ -433,25 +444,7 @@
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (event.type == UIEventSubtypeMotionShake) {
-        
-        self.locationManager = [[CLLocationManager alloc] init];
-        [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
-        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        [self.locationManager setDelegate:self];
-        [self.locationManager startUpdatingLocation];
-        
-        self.refreshed = NO;
-        
-        self.popup = [[ACPopup alloc] init];
-        self.popup.text = self.pickLoadingString;
-        self.popup.popupColor = [UIColor whiteColor];
-        [self.popup sizeToFit];
-        self.popup.center = self.view.center;
-        __weak ACPopup *pop = self.popup;
-        self.popup.onAnimationCompletion = ^{
-            [pop removeFromSuperview];
-        };
-        [self.view addSubview:self.popup];
+        [self getWeather];
     }
 }
 
