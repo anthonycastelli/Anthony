@@ -110,13 +110,8 @@
 #pragma mark - Animations
 
 - (void)animateViewsIn {
-    
-    [self performBlock:^{
-        [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0];
-    } afterDelay:0.3];
-    [self performBlock:^{
-        [self animateView:self.weather toPoint:CGPointMake(160, 30) withDelay:0];
-    } afterDelay:0.34];
+    [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.3];
+    [self animateView:self.weather toPoint:CGPointMake(160, 30) withDelay:0.34];
 }
 
 - (void)animateViewsOut {
