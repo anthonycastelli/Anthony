@@ -19,19 +19,19 @@
 @property (nonatomic, retain) NSString *location;
 @property (nonatomic, retain) NSDictionary *weatherData;
 
+- (void)animateViewsIn;
+- (void)animateViewsOut;
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 - (void)configureCurrentCell:(ACCurrentCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)configureForecastCell:(ACForecastCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)pickLoadingString;
+
 @end
 
 @implementation ACWeatherViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.3];
-    [self animateView:self.weather toPoint:CGPointMake(160, 30) withDelay:0.4];
     
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
@@ -53,6 +53,13 @@
     [self performBlock:^{
         [self.view addSubview:self.popup];
     } afterDelay:0.4];
+    
+    [self animateViewsIn];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self animateViewsIn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,24 +67,10 @@
 }
 
 - (IBAction)back:(id)sender {
-    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.1];
-    [self animateView:self.weather toPoint:CGPointMake(480, 30) withDelay:0.0];
-    
-    ACCurrentCell *current = (ACCurrentCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [current bounceView:current.background InToPoint:CGPointMake(480, 60) withDelay:0.0];
-    [current bounceView:current.location InToPoint:CGPointMake(566, 21) withDelay:0.1];
-    [current bounceView:current.condtionImage InToPoint:CGPointMake(480, 60) withDelay:0.15];
-    [current bounceView:current.currentTemp InToPoint:CGPointMake(377, 28) withDelay:0.2];
-    [current bounceView:current.highLow InToPoint:CGPointMake(377, 50) withDelay:0.25];
-    [current bounceView:current.condition InToPoint:CGPointMake(377, 65) withDelay:0.3];
-    [current bounceView:current.day InToPoint:CGPointMake(377, 90) withDelay:0.35];
-    
-    ACForecastCell *forecastOne = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-
-    
+    [self animateViewsOut];
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
-    } afterDelay:0.5];
+    } afterDelay:0.6];
 }
 
 #pragma mark - Location
@@ -105,15 +98,64 @@
 
 - (void)weather:(ACWeather *)weather didReceiveForecast:(NSDictionary *)forecast {
     self.weatherData = forecast;
-    //NSLog(@"%@", forecast);
     [self.tableView reloadData];
-    self.refreshed = YES;
+    
+    self.refreshed = YES; // Used to animate the cells after the weather data is returned
+    
     [self performBlock:^{
         [self.popup flash];
     } afterDelay:0.2];
 }
 
 #pragma mark - Animations
+
+- (void)animateViewsIn {
+    
+    [self performBlock:^{
+        [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0];
+    } afterDelay:0.3];
+    [self performBlock:^{
+        [self animateView:self.weather toPoint:CGPointMake(160, 30) withDelay:0];
+    } afterDelay:0.34];
+}
+
+- (void)animateViewsOut {
+    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.1];
+    [self animateView:self.weather toPoint:CGPointMake(480, 30) withDelay:0.0];
+    
+    ACCurrentCell *current = (ACCurrentCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [current bounceView:current.background InToPoint:CGPointMake(480, 60) withDelay:0.0];
+    [current bounceView:current.location InToPoint:CGPointMake(566, 21) withDelay:0.1];
+    [current bounceView:current.condtionImage InToPoint:CGPointMake(480, 60) withDelay:0.15];
+    [current bounceView:current.currentTemp InToPoint:CGPointMake(377, 28) withDelay:0.2];
+    [current bounceView:current.highLow InToPoint:CGPointMake(377, 50) withDelay:0.25];
+    [current bounceView:current.condition InToPoint:CGPointMake(377, 65) withDelay:0.3];
+    [current bounceView:current.day InToPoint:CGPointMake(377, 90) withDelay:0.35];
+    
+    ACForecastCell *forecastOne = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    [forecastOne bounceView:forecastOne.background InToPoint:CGPointMake(480, 45) withDelay:0.1];
+    [forecastOne bounceView:forecastOne.condition InToPoint:CGPointMake(372, 45) withDelay:0.15];
+    [forecastOne bounceView:forecastOne.temp InToPoint:CGPointMake(480, 45) withDelay:0.20];
+    [forecastOne bounceView:forecastOne.day InToPoint:CGPointMake(571, 45) withDelay:0.25];
+    
+    ACForecastCell *forecastTwo = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    [forecastTwo bounceView:forecastTwo.background InToPoint:CGPointMake(480, 45) withDelay:0.2];
+    [forecastTwo bounceView:forecastTwo.condition InToPoint:CGPointMake(372, 45) withDelay:0.25];
+    [forecastTwo bounceView:forecastTwo.temp InToPoint:CGPointMake(480, 45) withDelay:0.30];
+    [forecastTwo bounceView:forecastTwo.day InToPoint:CGPointMake(571, 45) withDelay:0.35];
+    
+    ACForecastCell *forecastThree = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    [forecastThree bounceView:forecastThree.background InToPoint:CGPointMake(480, 45) withDelay:0.3];
+    [forecastThree bounceView:forecastThree.condition InToPoint:CGPointMake(372, 45) withDelay:0.35];
+    [forecastThree bounceView:forecastThree.temp InToPoint:CGPointMake(480, 45) withDelay:0.40];
+    [forecastThree bounceView:forecastThree.day InToPoint:CGPointMake(571, 45) withDelay:0.45];
+    
+    ACForecastCell *forecastFour = (ACForecastCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+    [forecastFour bounceView:forecastFour.background InToPoint:CGPointMake(480, 45) withDelay:0.4];
+    [forecastFour bounceView:forecastFour.condition InToPoint:CGPointMake(372, 45) withDelay:0.45];
+    [forecastFour bounceView:forecastFour.temp InToPoint:CGPointMake(480, 45) withDelay:0.50];
+    [forecastFour bounceView:forecastFour.day InToPoint:CGPointMake(571, 45) withDelay:0.55];
+}
 
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay {
     [self performBlock:^{
@@ -203,8 +245,11 @@
     } else if ([weather.currently.icon isEqualToString:@"partly-cloudy-night"]) {
         [cell.condtionImage setImage:[UIImage imageNamed:@"weather_partly_cloudy_night"]];
     
-    } else {
+    } else if ([weather.currently.icon isEqualToString:@"fog"]) {
         [cell.condtionImage setImage:[UIImage imageNamed:@"weather_overcast"]];
+        
+    } else {
+        [cell.condtionImage setImage:[UIImage imageNamed:@"weather_unknown"]];
     }
     
     // Temprature Formatter

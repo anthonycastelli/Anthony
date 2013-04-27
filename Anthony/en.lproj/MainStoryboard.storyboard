@@ -478,7 +478,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="about_navbar@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-ZV-snW"/>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="weather@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="wCK-PO-FbE"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="weather@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="wCK-PO-FbE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="kyJ-TI-DQh"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPF-xw-ahq" userLabel="Back Button">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="dXM-hN-han"/>
@@ -678,8 +682,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8a0-ZV-snW" firstAttribute="trailing" secondItem="pjd-Ir-zbf" secondAttribute="trailing" type="default" id="56q-Kv-lrg"/>
-                            <constraint firstItem="wCK-PO-FbE" firstAttribute="leading" secondItem="pjd-Ir-zbf" secondAttribute="leading" type="default" id="AOk-Pp-qem"/>
-                            <constraint firstItem="tPF-xw-ahq" firstAttribute="leading" secondItem="pjd-Ir-zbf" secondAttribute="leading" type="default" id="DwC-YT-9F6"/>
+                            <constraint firstItem="wCK-PO-FbE" firstAttribute="leading" secondItem="tPF-xw-ahq" secondAttribute="leading" type="default" id="5rz-BV-dJE"/>
+                            <constraint firstItem="tPF-xw-ahq" firstAttribute="leading" secondItem="pjd-Ir-zbf" secondAttribute="leading" constant="320" id="8aR-Yp-t60"/>
                             <constraint firstItem="cwE-70-Dpv" firstAttribute="leading" secondItem="pjd-Ir-zbf" secondAttribute="leading" type="default" id="HSr-jX-iJ3"/>
                             <constraint firstItem="tPF-xw-ahq" firstAttribute="top" secondItem="pjd-Ir-zbf" secondAttribute="top" type="default" id="HZ2-8t-Pqe"/>
                             <constraint firstItem="8a0-ZV-snW" firstAttribute="leading" secondItem="pjd-Ir-zbf" secondAttribute="leading" type="default" id="Hud-wd-Apc"/>
@@ -687,13 +691,14 @@
                             <constraint firstItem="wCK-PO-FbE" firstAttribute="top" secondItem="pjd-Ir-zbf" secondAttribute="top" type="default" id="UWa-u6-zAd"/>
                             <constraint firstItem="8a0-ZV-snW" firstAttribute="top" secondItem="pjd-Ir-zbf" secondAttribute="top" type="default" id="Z2X-UQ-OaC"/>
                             <constraint firstItem="cwE-70-Dpv" firstAttribute="bottom" secondItem="pjd-Ir-zbf" secondAttribute="bottom" type="default" id="Zdx-1I-IuG"/>
-                            <constraint firstItem="wCK-PO-FbE" firstAttribute="trailing" secondItem="pjd-Ir-zbf" secondAttribute="trailing" type="default" id="bnb-Ka-kTI"/>
                             <constraint firstItem="cwE-70-Dpv" firstAttribute="trailing" secondItem="pjd-Ir-zbf" secondAttribute="trailing" type="default" id="l4h-9E-hgR"/>
                             <constraint firstItem="wCK-PO-FbE" firstAttribute="bottom" secondItem="tPF-xw-ahq" secondAttribute="bottom" type="default" id="l6d-Wh-Qgr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="tPF-xw-ahq" id="b6r-Rr-g4c"/>
                         <outlet property="tableView" destination="cwE-70-Dpv" id="vwf-1R-Qsa"/>
+                        <outlet property="weather" destination="wCK-PO-FbE" id="Dgd-PQ-fNR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWM-5T-UrP" userLabel="First Responder" sceneMemberID="firstResponder"/>
