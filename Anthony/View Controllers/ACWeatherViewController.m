@@ -267,9 +267,9 @@
     // background color based on the temprature
     float currentTemp = [[numberFormatter stringFromNumber:weather.currently.temperature] floatValue];
     if (currentTemp >= -100 && currentTemp <= 32) [cell setForecastColor:ACForecastColorBlue];
-    else if (currentTemp >= 32 && currentTemp <= 50) [cell setForecastColor:ACForecastColorGreen];
-    else if (currentTemp >= 50 && currentTemp <= 70) [cell setForecastColor:ACForecastColorYellow];
-    else if (currentTemp >= 70 && currentTemp <= 200) [cell setForecastColor:ACForecastColorOrange];
+    else if (currentTemp >= 33 && currentTemp <= 50) [cell setForecastColor:ACForecastColorGreen];
+    else if (currentTemp >= 51 && currentTemp <= 70) [cell setForecastColor:ACForecastColorYellow];
+    else if (currentTemp >= 71 && currentTemp <= 200) [cell setForecastColor:ACForecastColorOrange];
     
     // Current Temprature
     [cell.currentTemp setText:[NSString stringWithFormat:@"%@˚", [numberFormatter stringFromNumber:weather.currently.temperature] ?: @""]];
@@ -322,6 +322,7 @@
     [cell.day setClipsToBounds:NO];
     
     // Condition
+    NSLog(@"%@",datum.icon);
     if ([datum.icon isEqualToString:@"clear-day"]) {
         [cell.condition setImage:[UIImage imageNamed:@"weather_clear_small"]];
         
@@ -347,7 +348,7 @@
         [cell.condition setImage:[UIImage imageNamed:@"weather_partly_cloudy_night_small"]];
         
     } else {
-        [cell.condition setImage:[UIImage imageNamed:@""]];
+        [cell.condition setImage:[UIImage imageNamed:@"weather_unknown_small"]];
     }
     
     // Temprature Formatter
@@ -358,12 +359,13 @@
     // Temp
     [cell.temp setText:[NSString stringWithFormat:@"%@˚", [numberFormatter stringFromNumber:datum.temperatureMax] ?: @""]];
     
-    // COlor
-    float currentTemp = [[numberFormatter stringFromNumber:weather.currently.temperature] floatValue];
+    // Color
+    
+    float currentTemp = [[numberFormatter stringFromNumber:datum.temperatureMax] floatValue];
     if (currentTemp >= -100 && currentTemp <= 32) [cell setForecastColor:ACForecastDayColorBlue];
-    else if (currentTemp >= 32 && currentTemp <= 50) [cell setForecastColor:ACForecastDayColorGreen];
-    else if (currentTemp >= 50 && currentTemp <= 70) [cell setForecastColor:ACForecastDayColorYellow];
-    else if (currentTemp >= 70 && currentTemp <= 200) [cell setForecastColor:ACForecastDayColorOrange];
+    else if (currentTemp >= 33 && currentTemp <= 50) [cell setForecastColor:ACForecastDayColorGreen];
+    else if (currentTemp >= 51 && currentTemp <= 70) [cell setForecastColor:ACForecastDayColorYellow];
+    else if (currentTemp >= 71 && currentTemp <= 200) [cell setForecastColor:ACForecastDayColorOrange];
     
     // Day
     NSTimeInterval interval = datum.time.floatValue;
