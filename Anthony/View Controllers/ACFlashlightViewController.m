@@ -30,15 +30,15 @@
 }
 
 - (IBAction)back:(id)sender {
-    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.0];
-    [self animateView:self.flashlight toPoint:CGPointMake(480, 30) withDelay:0.01];
-    [self animateView:self.torchRingOne toPoint:CGPointMake(400, 274) withDelay:0.03];
+    [self animateView:self.flashlight toPoint:CGPointMake(480, 30) withDelay:0.0];
+    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.03];
+    [self animateView:self.torchRingOne toPoint:CGPointMake(400, 274) withDelay:0.05];
     [self animateView:self.torchRingThree toPoint:CGPointMake(400, 274) withDelay:0.07];
-    [self animateView:self.torchButton toPoint:CGPointMake(400, 274) withDelay:0.07];
+    [self animateView:self.torchButton toPoint:CGPointMake(400, 274) withDelay:0.09];
     
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
-    } afterDelay:0.7];
+    } afterDelay:0.06];
     
     [[ACTorch sharedTorch] stop]; // Make sure the torch is off
 }
