@@ -18,6 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImage *vegimite = [UIImage imageNamed:@"designs_vegemite"];
+    UIImage *luminous  = [UIImage imageNamed:@"designs_luminous"];
+    UIImage *cumulus = [UIImage imageNamed:@"designs_cumulus"];
+    UIImage *macbookpro = [UIImage imageNamed:@"designs_macbook_pro"];
+    UIImage *mail = [UIImage imageNamed:@"designs_mail"];
+    UIImage *music = [UIImage imageNamed:@"designs_music_icon"];
+    NSArray *items = @[vegimite, luminous, cumulus, macbookpro, mail, music];
+    self.designs = [[NSMutableArray alloc] initWithArray:items];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,7 +33,11 @@
 }
 
 - (IBAction)back:(id)sender {
-    
+    for (int i = 0; i < self.designs.count; i++) {
+        ACDesignsCell *cellOne = (ACDesignsCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        [cellOne bounceView:cellOne.border InToPoint:CGPointMake(300, 75) withDelay:0.0];
+        [cellOne bounceView:cellOne.design InToPoint:CGPointMake(300, 75) withDelay:0.01];
+    }
 }
 
 #pragma mark - Animations
@@ -57,13 +69,16 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ACDesignsCell *cell = (ACDesignsCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Design" forIndexPath:indexPath];
+    ACDesignsCell *cell = (ACDesignsCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"DesignsCell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 - (void)configureCell:(ACDesignsCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    [cell.design setImage:self.designs[indexPath.row]];
     
+    [cell bounceView:cell.border InToPoint:CGPointMake(100, 75) withDelay:0.4];
+    [cell bounceView:cell.design InToPoint:CGPointMake(100, 75) withDelay:0.5];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

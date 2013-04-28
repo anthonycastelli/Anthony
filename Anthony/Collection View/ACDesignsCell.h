@@ -11,7 +11,7 @@
 @interface ACDesignsCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *design;
-@property (weak, nonatomic) UIImageView *border;
+@property (weak, nonatomic) IBOutlet UIImageView *border;
 
 - (void)bounceView:(UIView *)view InToPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 
