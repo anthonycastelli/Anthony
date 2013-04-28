@@ -15,6 +15,7 @@
 @synthesize lampStations;
 @synthesize sources;
 @synthesize units;
+@synthesize darkskyUnavailable;
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.darkskyStations forKey:@"darkskyStations"];

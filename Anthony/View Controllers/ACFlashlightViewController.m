@@ -7,6 +7,7 @@
 //
 
 #import "ACFlashlightViewController.h"
+#import "ACTorch.h"
 
 @interface ACFlashlightViewController ()
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
@@ -16,10 +17,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.3];
+    [self animateView:self.flashlight toPoint:CGPointMake(160, 30) withDelay:0.35];
+    [self animateView:self.torchRingOne toPoint:CGPointMake(160, 274) withDelay:0.4];
+    [self animateView:self.torchRingThree toPoint:CGPointMake(160, 274) withDelay:0.45];
+    [self animateView:self.torchButton toPoint:CGPointMake(160, 274) withDelay:0.5];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (IBAction)back:(id)sender {
+    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.0];
+    [self animateView:self.flashlight toPoint:CGPointMake(480, 30) withDelay:0.01];
+    [self animateView:self.torchRingOne toPoint:CGPointMake(400, 274) withDelay:0.03];
+    [self animateView:self.torchRingThree toPoint:CGPointMake(400, 274) withDelay:0.07];
+    [self animateView:self.torchButton toPoint:CGPointMake(400, 274) withDelay:0.07];
+    
+    [self performBlock:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    } afterDelay:0.7];
+    
+    [[ACTorch sharedTorch] stop]; // Make sure the torch is off
+}
+
+- (IBAction)torch:(id)sender {
+    ACTorch *torch = [ACTorch sharedTorch];
+    if ([torch isTorchOn]) {
+        [torch stop];
+        [self.torchButton setBackgroundImage:[UIImage imageNamed:@"flashlight_torch_button_off"] forState:UIControlStateNormal];
+    } else {
+        [torch start];
+        [self.torchButton setBackgroundImage:[UIImage imageNamed:@"flashlight_torch_button_on"] forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - Animations

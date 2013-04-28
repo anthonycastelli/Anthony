@@ -81,6 +81,14 @@
 		925E1F80172C40B7008B81E3 /* WeatherFlags.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1F76172C40B7008B81E3 /* WeatherFlags.m */; };
 		925E1F81172C40B7008B81E3 /* WeatherHourly.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1F78172C40B7008B81E3 /* WeatherHourly.m */; };
 		925E1F82172C40B7008B81E3 /* WeatherMinutely.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1F7A172C40B7008B81E3 /* WeatherMinutely.m */; };
+		925E1F86172C4A59008B81E3 /* ACTorch.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E1F85172C4A59008B81E3 /* ACTorch.m */; };
+		925E1F88172C8E62008B81E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925E1F87172C8E61008B81E3 /* AVFoundation.framework */; };
+		925E1F90172C9AD1008B81E3 /* flashlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F8A172C9AD1008B81E3 /* flashlight@2x.png */; };
+		925E1F91172C9AD1008B81E3 /* flashlight_torch_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F8B172C9AD1008B81E3 /* flashlight_torch_button_off@2x.png */; };
+		925E1F92172C9AD1008B81E3 /* flashlight_torch_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F8C172C9AD1008B81E3 /* flashlight_torch_button_on@2x.png */; };
+		925E1F93172C9AD1008B81E3 /* flashlight_torch_ring_one@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F8D172C9AD1008B81E3 /* flashlight_torch_ring_one@2x.png */; };
+		925E1F94172C9AD1008B81E3 /* flashlight_torch_ring_three@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F8E172C9AD1008B81E3 /* flashlight_torch_ring_three@2x.png */; };
+		925E1F96172CA038008B81E3 /* flashlight_torch_ring_two@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925E1F8F172C9AD1008B81E3 /* flashlight_torch_ring_two@2x.png */; };
 		92828075172860C7004AAA13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828074172860C6004AAA13 /* UIKit.framework */; };
 		92828077172860C7004AAA13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828076172860C7004AAA13 /* Foundation.framework */; };
 		92828079172860C7004AAA13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92828078172860C7004AAA13 /* CoreGraphics.framework */; };
@@ -203,6 +211,15 @@
 		925E1F78172C40B7008B81E3 /* WeatherHourly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHourly.m; sourceTree = "<group>"; };
 		925E1F79172C40B7008B81E3 /* WeatherMinutely.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherMinutely.h; sourceTree = "<group>"; };
 		925E1F7A172C40B7008B81E3 /* WeatherMinutely.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherMinutely.m; sourceTree = "<group>"; };
+		925E1F84172C4A59008B81E3 /* ACTorch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTorch.h; sourceTree = "<group>"; };
+		925E1F85172C4A59008B81E3 /* ACTorch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTorch.m; sourceTree = "<group>"; };
+		925E1F87172C8E61008B81E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		925E1F8A172C9AD1008B81E3 /* flashlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashlight@2x.png"; sourceTree = "<group>"; };
+		925E1F8B172C9AD1008B81E3 /* flashlight_torch_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashlight_torch_button_off@2x.png"; sourceTree = "<group>"; };
+		925E1F8C172C9AD1008B81E3 /* flashlight_torch_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashlight_torch_button_on@2x.png"; sourceTree = "<group>"; };
+		925E1F8D172C9AD1008B81E3 /* flashlight_torch_ring_one@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashlight_torch_ring_one@2x.png"; sourceTree = "<group>"; };
+		925E1F8E172C9AD1008B81E3 /* flashlight_torch_ring_three@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashlight_torch_ring_three@2x.png"; sourceTree = "<group>"; };
+		925E1F8F172C9AD1008B81E3 /* flashlight_torch_ring_two@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashlight_torch_ring_two@2x.png"; sourceTree = "<group>"; };
 		92828071172860C6004AAA13 /* Anthony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anthony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92828074172860C6004AAA13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92828076172860C7004AAA13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -252,6 +269,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925E1F88172C8E62008B81E3 /* AVFoundation.framework in Frameworks */,
 				925E1E84172A4E87008B81E3 /* CoreLocation.framework in Frameworks */,
 				925E1E82172A4E82008B81E3 /* AddressBook.framework in Frameworks */,
 				925E1E5A172A0DBA008B81E3 /* CoreImage.framework in Frameworks */,
@@ -315,6 +333,7 @@
 		925E1EDC172B32EE008B81E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				925E1F89172C9AD1008B81E3 /* Flashlight */,
 				925E1EDD172B32EE008B81E3 /* About */,
 				925E1EEA172B32EE008B81E3 /* Apps */,
 				925E1EEE172B32EE008B81E3 /* Defaults */,
@@ -452,6 +471,28 @@
 			name = Flashlight;
 			sourceTree = "<group>";
 		};
+		925E1F83172C4A58008B81E3 /* ACTorch */ = {
+			isa = PBXGroup;
+			children = (
+				925E1F84172C4A59008B81E3 /* ACTorch.h */,
+				925E1F85172C4A59008B81E3 /* ACTorch.m */,
+			);
+			path = ACTorch;
+			sourceTree = "<group>";
+		};
+		925E1F89172C9AD1008B81E3 /* Flashlight */ = {
+			isa = PBXGroup;
+			children = (
+				925E1F8A172C9AD1008B81E3 /* flashlight@2x.png */,
+				925E1F8B172C9AD1008B81E3 /* flashlight_torch_button_off@2x.png */,
+				925E1F8C172C9AD1008B81E3 /* flashlight_torch_button_on@2x.png */,
+				925E1F8D172C9AD1008B81E3 /* flashlight_torch_ring_one@2x.png */,
+				925E1F8E172C9AD1008B81E3 /* flashlight_torch_ring_three@2x.png */,
+				925E1F8F172C9AD1008B81E3 /* flashlight_torch_ring_two@2x.png */,
+			);
+			path = Flashlight;
+			sourceTree = "<group>";
+		};
 		92828068172860C6004AAA13 = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +513,7 @@
 		92828073172860C6004AAA13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				925E1F87172C8E61008B81E3 /* AVFoundation.framework */,
 				925E1E83172A4E86008B81E3 /* CoreLocation.framework */,
 				925E1E81172A4E82008B81E3 /* AddressBook.framework */,
 				925E1E58172A0DB9008B81E3 /* CoreImage.framework */,
@@ -516,6 +558,7 @@
 		928280971728628B004AAA13 /* Internal Classes */ = {
 			isa = PBXGroup;
 			children = (
+				925E1F83172C4A58008B81E3 /* ACTorch */,
 				925E1EC0172AE85B008B81E3 /* ACExtentions */,
 				925E1EB6172AD6A0008B81E3 /* ACWeather */,
 				928280EC1728D53C004AAA13 /* ACAlertView */,
@@ -674,6 +717,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925E1F96172CA038008B81E3 /* flashlight_torch_ring_two@2x.png in Resources */,
 				9282807F172860C7004AAA13 /* InfoPlist.strings in Resources */,
 				9282808E172860C7004AAA13 /* MainStoryboard.storyboard in Resources */,
 				928280FC1728D53C004AAA13 /* acAlertView_defaultBackground_alphaOnly.png in Resources */,
@@ -741,6 +785,11 @@
 				925E1F4E172B32EE008B81E3 /* weather_snowy@2x.png in Resources */,
 				925E1F4F172B32EE008B81E3 /* weather_thunder_storm@2x.png in Resources */,
 				925E1F50172B32EE008B81E3 /* weather_thunder_storm_small@2x.png in Resources */,
+				925E1F90172C9AD1008B81E3 /* flashlight@2x.png in Resources */,
+				925E1F91172C9AD1008B81E3 /* flashlight_torch_button_off@2x.png in Resources */,
+				925E1F92172C9AD1008B81E3 /* flashlight_torch_button_on@2x.png in Resources */,
+				925E1F93172C9AD1008B81E3 /* flashlight_torch_ring_one@2x.png in Resources */,
+				925E1F94172C9AD1008B81E3 /* flashlight_torch_ring_three@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +827,7 @@
 				925E1F80172C40B7008B81E3 /* WeatherFlags.m in Sources */,
 				925E1F81172C40B7008B81E3 /* WeatherHourly.m in Sources */,
 				925E1F82172C40B7008B81E3 /* WeatherMinutely.m in Sources */,
+				925E1F86172C4A59008B81E3 /* ACTorch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
