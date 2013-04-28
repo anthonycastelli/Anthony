@@ -26,6 +26,9 @@
     UIImage *music = [UIImage imageNamed:@"designs_music_icon"];
     NSArray *items = @[vegimite, luminous, cumulus, macbookpro, mail, music];
     self.designs = [[NSMutableArray alloc] initWithArray:items];
+    
+    [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.3];
+    [self animateView:self.design toPoint:CGPointMake(160, 30) withDelay:0.34];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +41,11 @@
         [cellOne bounceView:cellOne.border InToPoint:CGPointMake(300, 75) withDelay:0.0];
         [cellOne bounceView:cellOne.design InToPoint:CGPointMake(300, 75) withDelay:0.01];
     }
+    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.03];
+    [self animateView:self.design toPoint:CGPointMake(480, 30) withDelay:0.0];
+    [self performBlock:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    } afterDelay:0.01];
 }
 
 #pragma mark - Animations
