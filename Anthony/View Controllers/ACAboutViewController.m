@@ -38,15 +38,11 @@
     [self.view addGestureRecognizer:swipe];
     
     // About me text
-	NSString *about = @"Anthony Castelli about string";
-    NSString *name = @"Anthony";
+	NSString *about = @"I was born in southern California and lived there for five years before moving to Reno, Nevada. At the age of four, I first began to play tennis, and continued playing tennis at the Reno Tennis Centre, Nevada. Participating in various tennis tournaments over the years, and joining the Galena Tennis team in 2009 for four years, during high school. I was ranked as the teams number one tennis player in my senior year, as well as attaining the position of team captain. \n\nI have always been homeschooled which allowed me to concentrate on my passion as well as completing my school work. At the age of 11, I became very interested in computers and began learning how they were built, how they functioned, and how the system performed each task. Within six months, I began to teach myself how to develop software for the OS X platform and quickly became the family, friends, and the neighborhood tech genius. \n\nOver the years I continued to learn and create new and exciting productivity applications for the mac. When the iPhone was released in 2007, I knew it was a prime opportunity to begin selling my apps. While working as a tennis coach at the Reno tennis Centre, and taking on various jobs, my curiosity in photography led me to save up for my first DSLR camera. I spent much of my free time playing playing tennis, working on my iPhone apps, learning about photography and doing volunteer work. \n\nLearning CSS and HTML lead me to web design and development, and in February 2011, I assisted with the re-design of, “Rain A Tribute to the Beatle’s” web site. (http://raintribute.com) Everything from the content management system to the design and layout was my area of involvement. \n\nSince October, 2012, I began volunteering for the Children’s Cabinet, where I helped manage hundreds of servers and computers that were streamed across the state of Nevada. At the end of 2012, I founded my own company, Emerys, where I currently design and develop iOS and OS X apps.";
+
     NSDictionary *defaultAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.437 green:0.494 blue:0.609 alpha:1.000],
                                         NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0]};
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:about attributes:defaultAttributes];
-    
-    NSDictionary *nameAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.437 green:0.494 blue:0.609 alpha:1.000],
-                                        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0]};
-    [attributedString setAttributes:nameAttributes range:[about rangeOfString:name]];
     
     [self.textView setAttributedText:attributedString];
 }
@@ -69,18 +65,18 @@
 #pragma mark - Options
 
 - (IBAction)back:(id)sender {
-    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.35];
-    [self animateView:self.anthony toPoint:CGPointMake(480, 30) withDelay:0.3];
-    [self animateView:self.textView toPoint:CGPointMake(460, 274) withDelay:0.25];
-    [self animateView:self.emerys toPoint:CGPointMake(352, 516) withDelay:0.20];
-    [self animateView:self.twitter toPoint:CGPointMake(416, 516) withDelay:0.15];
-    [self animateView:self.adn toPoint:CGPointMake(480, 516) withDelay:0.10];
-    [self animateView:self.dribbble toPoint:CGPointMake(544, 516) withDelay:0.05];
+    [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.12];
+    [self animateView:self.anthony toPoint:CGPointMake(480, 30) withDelay:0.10];
+    [self animateView:self.textView toPoint:CGPointMake(460, 274) withDelay:0.09];
+    [self animateView:self.emerys toPoint:CGPointMake(352, 516) withDelay:0.07];
+    [self animateView:self.twitter toPoint:CGPointMake(416, 516) withDelay:0.05];
+    [self animateView:self.adn toPoint:CGPointMake(480, 516) withDelay:0.03];
+    [self animateView:self.dribbble toPoint:CGPointMake(544, 516) withDelay:0.02];
     [self animateView:self.email toPoint:CGPointMake(608, 516) withDelay:0.0];
     
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
-    } afterDelay:0.3];
+    } afterDelay:0.1];
 }
 
 - (IBAction)emerys:(id)sender {

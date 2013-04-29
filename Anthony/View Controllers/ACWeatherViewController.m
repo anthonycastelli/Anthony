@@ -327,7 +327,6 @@
     [cell.day setClipsToBounds:NO];
     
     // Condition
-    NSLog(@"%@",datum.icon);
     if ([datum.icon isEqualToString:@"clear-day"]) {
         [cell.condition setImage:[UIImage imageNamed:@"weather_clear_small"]];
         
