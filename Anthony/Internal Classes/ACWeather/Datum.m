@@ -30,6 +30,7 @@
 @synthesize visibility;
 @synthesize windBearing;
 @synthesize windSpeed;
+@synthesize precipType;
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.cloudCover forKey:@"cloudCover"];
@@ -52,6 +53,7 @@
     [encoder encodeObject:self.visibility forKey:@"visibility"];
     [encoder encodeObject:self.windBearing forKey:@"windBearing"];
     [encoder encodeObject:self.windSpeed forKey:@"windSpeed"];
+    [encoder encodeObject:self.precipType forKey:@"precipType"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -76,6 +78,7 @@
         self.visibility = [decoder decodeObjectForKey:@"visibility"];
         self.windBearing = [decoder decodeObjectForKey:@"windBearing"];
         self.windSpeed = [decoder decodeObjectForKey:@"windSpeed"];
+        self.precipType = [decoder decodeObjectForKey:@"precipType"];
     }
     return self;
 }

@@ -388,7 +388,7 @@
                 [cell bounceView:cell.background InToPoint:CGPointMake(160, 46) withDelay:0.0];
                 [cell bounceView:cell.condition InToPoint:CGPointMake(52, 46) withDelay:0.3];
                 [cell bounceView:cell.temp InToPoint:CGPointMake(160, 46) withDelay:0.4];
-                [cell bounceView:cell.day InToPoint:CGPointMake(251, 44) withDelay:0.5];
+                [cell bounceView:cell.day InToPoint:CGPointMake(250, 44) withDelay:0.5];
             } afterDelay:0.20];
         } else if (indexPath.row == 2) {
             [self performBlock:^{
@@ -396,7 +396,7 @@
                 [cell bounceView:cell.background InToPoint:CGPointMake(160, 46) withDelay:0.0];
                 [cell bounceView:cell.condition InToPoint:CGPointMake(52, 46) withDelay:0.3];
                 [cell bounceView:cell.temp InToPoint:CGPointMake(160, 46) withDelay:0.4];
-                [cell bounceView:cell.day InToPoint:CGPointMake(251, 44) withDelay:0.5];
+                [cell bounceView:cell.day InToPoint:CGPointMake(250, 44) withDelay:0.5];
             } afterDelay:0.25];
         } else if (indexPath.row == 3) {
             [self performBlock:^{
@@ -404,7 +404,7 @@
                 [cell bounceView:cell.background InToPoint:CGPointMake(160, 46) withDelay:0.0];
                 [cell bounceView:cell.condition InToPoint:CGPointMake(52, 46) withDelay:0.3];
                 [cell bounceView:cell.temp InToPoint:CGPointMake(160, 46) withDelay:0.4];
-                [cell bounceView:cell.day InToPoint:CGPointMake(251, 44) withDelay:0.5];
+                [cell bounceView:cell.day InToPoint:CGPointMake(250, 44) withDelay:0.5];
             } afterDelay:0.30];
         } else if (indexPath.row == 4) {
             [self performBlock:^{
@@ -412,7 +412,7 @@
                 [cell bounceView:cell.background InToPoint:CGPointMake(160, 46) withDelay:0.0];
                 [cell bounceView:cell.condition InToPoint:CGPointMake(52, 46) withDelay:0.3];
                 [cell bounceView:cell.temp InToPoint:CGPointMake(160, 46) withDelay:0.4];
-                [cell bounceView:cell.day InToPoint:CGPointMake(251, 44) withDelay:0.5];
+                [cell bounceView:cell.day InToPoint:CGPointMake(250, 44) withDelay:0.5];
             } afterDelay:0.35];
         }
     }

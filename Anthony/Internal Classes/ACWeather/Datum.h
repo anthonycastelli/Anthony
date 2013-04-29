@@ -29,6 +29,7 @@
     NSNumber *visibility;
     NSNumber *windBearing;
     NSNumber *windSpeed;
+    NSString *precipType;
 }
 
 @property (nonatomic, copy) NSNumber *cloudCover;
@@ -51,6 +52,7 @@
 @property (nonatomic, copy) NSNumber *visibility;
 @property (nonatomic, copy) NSNumber *windBearing;
 @property (nonatomic, copy) NSNumber *windSpeed;
+@property (nonatomic, copy) NSString *precipType;
 
 + (Datum *)instanceFromDictionary:(NSDictionary *)aDictionary;
 - (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
