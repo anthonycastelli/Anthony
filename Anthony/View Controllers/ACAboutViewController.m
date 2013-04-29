@@ -15,6 +15,7 @@
 @property (nonatomic, retain) ACAlertView *dribbbleAlert;
 @property (nonatomic, retain) ACAlertView *emailAlert;
 
+- (void)animateIn;
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 - (void)shakeView:(UIView *)view withDistance:(float)distance;
 @end
@@ -29,14 +30,7 @@
     [self.background setContentMode:UIViewContentModeScaleToFill];
     
     // Animate the objects into place
-    [self animateView:self.anthony toPoint:CGPointMake(160, 30) withDelay:0.3];
-    [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.35];
-    [self animateView:self.textView toPoint:CGPointMake(160, 274) withDelay:0.4];
-    [self animateView:self.emerys toPoint:CGPointMake(32, 516) withDelay:0.5];
-    [self animateView:self.twitter toPoint:CGPointMake(96, 516) withDelay:0.55];
-    [self animateView:self.adn toPoint:CGPointMake(160, 516) withDelay:0.6];
-    [self animateView:self.dribbble toPoint:CGPointMake(224, 516) withDelay:0.65];
-    [self animateView:self.email toPoint:CGPointMake(288, 516) withDelay:0.7];
+    [self animateIn];
     
     // Setup the swipe gesture
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(back:)];
@@ -59,6 +53,17 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)animateIn {
+    [self animateView:self.anthony toPoint:CGPointMake(160, 30) withDelay:0.3];
+    [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.35];
+    [self animateView:self.textView toPoint:CGPointMake(160, 274) withDelay:0.4];
+    [self animateView:self.emerys toPoint:CGPointMake(32, 516) withDelay:0.5];
+    [self animateView:self.twitter toPoint:CGPointMake(96, 516) withDelay:0.55];
+    [self animateView:self.adn toPoint:CGPointMake(160, 516) withDelay:0.6];
+    [self animateView:self.dribbble toPoint:CGPointMake(224, 516) withDelay:0.65];
+    [self animateView:self.email toPoint:CGPointMake(288, 516) withDelay:0.7];
 }
 
 #pragma mark - Options
@@ -198,6 +203,7 @@
         default:
             break;
     }
+    [self animateIn];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

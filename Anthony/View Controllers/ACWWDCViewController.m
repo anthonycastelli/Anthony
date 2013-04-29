@@ -1,19 +1,18 @@
 //
-//  ACFlashlightViewController.m
+//  ACWWDCViewController.m
 //  Anthony
 //
-//  Created by Anthony Castelli on 4/26/13.
+//  Created by Anthony Castelli on 4/28/13.
 //  Copyright (c) 2013 Emerys. All rights reserved.
 //
 
-#import "ACFlashlightViewController.h"
-#import "ACTorch.h"
+#import "ACWWDCViewController.h"
 
-@interface ACFlashlightViewController ()
+@interface ACWWDCViewController ()
 - (void)animateView:(UIView *)view toPoint:(CGPoint)point withDelay:(NSTimeInterval)delay;
 @end
 
-@implementation ACFlashlightViewController
+@implementation ACWWDCViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,10 +23,8 @@
     [self.view addGestureRecognizer:swipe];
     
     [self animateView:self.backButton toPoint:CGPointMake(30, 30) withDelay:0.3];
-    [self animateView:self.flashlight toPoint:CGPointMake(160, 30) withDelay:0.35];
-    [self animateView:self.torchRingOne toPoint:CGPointMake(160, 274) withDelay:0.4];
-    [self animateView:self.torchRingThree toPoint:CGPointMake(160, 274) withDelay:0.45];
-    [self animateView:self.torchButton toPoint:CGPointMake(160, 274) withDelay:0.5];
+    [self animateView:self.wwdc toPoint:CGPointMake(160, 30) withDelay:0.34];
+    [self animateView:self.textView toPoint:CGPointMake(160, 30) withDelay:0.36];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,28 +32,12 @@
 }
 
 - (IBAction)back:(id)sender {
-    [self animateView:self.flashlight toPoint:CGPointMake(480, 30) withDelay:0.0];
     [self animateView:self.backButton toPoint:CGPointMake(350, 30) withDelay:0.03];
-    [self animateView:self.torchRingOne toPoint:CGPointMake(400, 274) withDelay:0.05];
-    [self animateView:self.torchRingThree toPoint:CGPointMake(400, 274) withDelay:0.07];
-    [self animateView:self.torchButton toPoint:CGPointMake(400, 274) withDelay:0.09];
-    
+    [self animateView:self.wwdc toPoint:CGPointMake(480, 30) withDelay:0.01];
+    [self animateView:self.textView toPoint:CGPointMake(480, 0) withDelay:0.0];
     [self performBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
-    } afterDelay:0.06];
-    
-    [[ACTorch sharedTorch] stop]; // Make sure the torch is off
-}
-
-- (IBAction)torch:(id)sender {
-    ACTorch *torch = [ACTorch sharedTorch];
-    if ([torch isTorchOn]) {
-        [torch stop];
-        [self.torchButton setBackgroundImage:[UIImage imageNamed:@"flashlight_torch_button_off"] forState:UIControlStateNormal];
-    } else {
-        [torch start];
-        [self.torchButton setBackgroundImage:[UIImage imageNamed:@"flashlight_torch_button_on"] forState:UIControlStateNormal];
-    }
+    } afterDelay:0.02];
 }
 
 #pragma mark - Animations

@@ -19,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Setup the swipe gesture
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(back:)];
+    [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipe];
+    
     [self.tableView setBackgroundColor:[UIColor blackColor]];
     
     [self animateView:self.timeline toPoint:CGPointMake(160, 30) withDelay:0.4];

@@ -18,6 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Setup the swipe gesture
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(back:)];
+    [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipe];
+    
     UIImage *vegimite = [UIImage imageNamed:@"designs_vegemite"];
     UIImage *luminous  = [UIImage imageNamed:@"designs_luminous"];
     UIImage *cumulus = [UIImage imageNamed:@"designs_cumulus"];
